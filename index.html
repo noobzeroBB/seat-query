@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>座位查询</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<style>
+  /* ===== 全局重置与变量 ===== */
+  :root {
+    --bg-deep: #0B1120;
+    --bg-card: #131B2E;
+    --bg-card-light: #1A2440;
+    --accent: #D4A853;
+    --accent-soft: rgba(212, 168, 83, 0.12);
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --border: rgba(212, 168, 83, 0.2);
+    --error: #F87171;
+    --radius: 16px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212, 168, 83, 0.08) 0%, transparent 60%),
+      var(--bg-deep);
+  }
+
+  /* ===== 视图容器 ===== */
+  .app {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+    position: relative;
+  }
+
+  .view {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 0.35s ease;
+  }
+
+  .view.active {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== 顶部品牌区 ===== */
+  .brand {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .brand-mark {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    border: 1.5px solid var(--accent);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+  }
+
+  .brand-mark svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .brand-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .brand-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
+  /* ===== 输入表单 ===== */
+  .form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  .input-wrap {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .input-wrap input {
+    width: 100%;
+    height: 52px;
+    background: var(--bg-card-light);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 16px;
+    color: var(--text-primary);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .input-wrap input::placeholder {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  .input-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .btn {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 2px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0B1120;
+    font-weight: 700;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+    background: #C49A45;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    margin-top: 12px;
+  }
+
+  .btn-ghost:active {
+    background: rgba(148, 163, 184, 0.08);
+  }
+
+  .hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 20px;
+    line-height: 1.8;
+  }
+
+  /* ===== 结果页 - 票根样式 ===== */
+  .ticket {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .ticket-header {
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 1px dashed var(--border);
+    position: relative;
+  }
+
+  .ticket-header::before,
+  .ticket-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-deep);
+    border-radius: 50%;
+  }
+
+  .ticket-header::before { left: -10px; }
+  .ticket-header::after { right: -10px; }
+
+  .ticket-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .ticket-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .ticket-body {
+    padding: 36px 24px 32px;
+    text-align: center;
+  }
+
+  .seat-display {
+    margin-bottom: 28px;
+  }
+
+  .seat-row-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+  }
+
+  .seat-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .seat-unit {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--accent);
+    margin-left: 4px;
+  }
+
+  .seat-detail {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .seat-detail-item {
+    text-align: center;
+  }
+
+  .seat-detail-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .seat-detail-key {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  /* ===== 未找到状态 ===== */
+  .not-found {
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .not-found-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: rgba(248, 113, 113, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .not-found-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--error);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+  }
+
+  .not-found-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .not-found-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  /* ===== 底部信息 ===== */
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-top: auto;
+  }
+
+  /* ===== 加载动画 ===== */
+  .loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(11, 17, 32, 0.3);
+    border-top-color: #0B1120;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ===== 移动端适配 ===== */
+  @media (max-width: 360px) {
+    .app { padding: 0 16px; }
+    .seat-number { font-size: 60px; }
+    .brand-title { font-size: 19px; }
+  }
+
+  @media (min-height: 700px) {
+    .brand { margin-bottom: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== 视图：输入姓名 ===== -->
+  <section class="view active" id="view-input">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h10"/>
+          <circle cx="18" cy="18" r="2.5"/>
+        </svg>
+      </div>
+      <div class="brand-title" id="meeting-title">座位查询</div>
+      <div class="brand-subtitle" id="meeting-subtitle">请输入您的姓名查询座位</div>
+    </div>
+
+    <div class="form-card">
+      <label class="form-label" for="name-input">参会人姓名</label>
+      <div class="input-wrap">
+        <input type="text" id="name-input" placeholder="请输入您的姓名" autocomplete="off" enterkeyhint="search">
+      </div>
+      <button class="btn btn-primary" id="search-btn">查 询 座 位</button>
+    </div>
+
+    <div class="hint">
+      请使用报名时登记的姓名查询<br>
+      如有疑问请联系现场工作人员
+    </div>
+  </section>
+
+  <!-- ===== 视图：查询结果 ===== -->
+  <section class="view" id="view-result">
+    <div class="brand" style="margin-bottom: 32px;">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h10"/>
+          <circle cx="18" cy="18" r="2.5"/>
+        </svg>
+      </div>
+      <div class="brand-title">您的座位信息</div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-header">
+        <div class="ticket-name" id="result-name">—</div>
+        <div class="ticket-label">ATTENDEE</div>
+      </div>
+      <div class="ticket-body">
+        <div class="seat-display">
+          <div class="seat-row-label">SEAT NUMBER</div>
+          <div>
+            <span class="seat-number" id="result-seat">—</span>
+            <span class="seat-unit">号</span>
+          </div>
+        </div>
+        <div class="seat-detail">
+          <div class="seat-detail-item">
+            <div class="seat-detail-value" id="result-row">—</div>
+            <div class="seat-detail-key">排 数</div>
+          </div>
+          <div class="seat-detail-item">
+            <div class="seat-detail-value" id="result-area">—</div>
+            <div class="seat-detail-key">区 域</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-ghost" id="back-btn">返 回 重 新 查 询</button>
+  </section>
+
+  <!-- ===== 视图：未找到 ===== -->
+  <section class="view" id="view-notfound">
+    <div class="not-found">
+      <div class="not-found-icon">
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="M21 21l-4.35-4.35"/>
+          <path d="M8 11h6"/>
+        </svg>
+      </div>
+      <div class="not-found-title">未查询到座位信息</div>
+      <div class="not-found-desc" id="notfound-desc">
+        请确认输入的姓名与报名时一致<br>
+        或联系现场工作人员协助查询
+      </div>
+      <button class="btn btn-primary" id="retry-btn">重 新 输 入</button>
+    </div>
+  </section>
+
+  <div class="footer" id="footer-text">POWERED BY SEAT QUERY SYSTEM</div>
+</div>
+
+<script>
+  /* ============================================================
+   *  座位数据配置 —— 替换以下数组即可更新座位表
+   *  每条数据格式：
+   *    { name: "姓名", row: 排数(数字), seat: 座位号(数字), area: "区域" }
+   *  说明：
+   *    - name  ：参会人姓名（支持中英文，查询时自动忽略空格）
+   *    - row   ：第几排（数字，如 5 表示第5排）
+   *    - seat  ：座位号（数字，如 12 表示12号）
+   *    - area  ：区域名称（如 "A区"、"主会场"、"VIP区"，可留空字符串）
+   *  示例：
+   *    { name: "张三", row: 3, seat: 8, area: "A区" }
+   *    { name: "John Smith", row: 5, seat: 15, area: "Guest" }
+   * ============================================================ */
+  const SEAT_DATA = [
+    { name: "李红飞", row: 2, seat: 10, area: "VIP区" }
+  ];
+
+  /* ============================================================
+   *  会议信息配置 —— 可自定义页面标题和底部文字
+   * ============================================================ */
+  const CONFIG = {
+    meetingTitle: "座位查询",
+    meetingSubtitle: "请输入您的姓名查询座位",
+    footerText: "POWERED BY SEAT QUERY SYSTEM"
+  };
+
+  /* ============================================================
+   *  以下为系统逻辑，一般无需修改
+   * ============================================================ */
+
+  // 初始化配置
+  document.getElementById("meeting-title").textContent = CONFIG.meetingTitle;
+  document.getElementById("meeting-subtitle").textContent = CONFIG.meetingSubtitle;
+  document.getElementById("footer-text").textContent = CONFIG.footerText;
+
+  // 视图切换
+  function showView(viewId) {
+    document.querySelectorAll(".view").forEach(function(v) {
+      v.classList.remove("active");
+    });
+    document.getElementById(viewId).classList.add("active");
+    window.scrollTo(0, 0);
+  }
+
+  // 姓名标准化：去除空格、转小写用于比较
+  function normalizeName(name) {
+    return name.replace(/\s+/g, "").toLowerCase();
+  }
+
+  // 查询座位
+  function searchSeat(inputName) {
+    var query = normalizeName(inputName);
+    if (!query) return null;
+
+    // 第一轮：精确匹配
+    for (var i = 0; i < SEAT_DATA.length; i++) {
+      if (normalizeName(SEAT_DATA[i].name) === query) {
+        return SEAT_DATA[i];
+      }
+    }
+
+    // 第二轮：模糊匹配（输入包含于姓名 或 姓名包含于输入）
+    var matches = [];
+    for (var j = 0; j < SEAT_DATA.length; j++) {
+      var dataName = normalizeName(SEAT_DATA[j].name);
+      if (dataName.indexOf(query) !== -1 || query.indexOf(dataName) !== -1) {
+        matches.push(SEAT_DATA[j]);
+      }
+    }
+
+    // 模糊匹配到唯一结果时返回，多个结果时返回第一个并在提示中说明
+    if (matches.length === 1) {
+      return matches[0];
+    } else if (matches.length > 1) {
+      return matches[0];
+    }
+
+    return null;
+  }
+
+  // 显示结果
+  function showResult(data) {
+    document.getElementById("result-name").textContent = data.name;
+    document.getElementById("result-seat").textContent = data.seat;
+    document.getElementById("result-row").textContent = "第 " + data.row + " 排";
+    document.getElementById("result-area").textContent = data.area || "—";
+    showView("view-result");
+  }
+
+  // 显示未找到
+  function showNotFound(inputName) {
+    var desc = document.getElementById("notfound-desc");
+    if (inputName && inputName.trim()) {
+      desc.innerHTML = "未找到姓名为「" + escapeHtml(inputName.trim()) + "」的座位信息<br>请确认与报名时登记的姓名一致，或联系现场工作人员";
+    } else {
+      desc.innerHTML = "请输入您的姓名进行查询<br>如有疑问请联系现场工作人员";
+    }
+    showView("view-notfound");
+  }
+
+  // HTML转义，防止XSS
+  function escapeHtml(text) {
+    var div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // 执行查询（带短暂加载效果）
+  function doSearch() {
+    var input = document.getElementById("name-input");
+    var btn = document.getElementById("search-btn");
+    var name = input.value;
+
+    if (!name || !name.trim()) {
+      input.focus();
+      input.style.borderColor = "var(--error)";
+      setTimeout(function() { input.style.borderColor = ""; }, 1500);
+      return;
+    }
+
+    // 加载状态
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loading"></span>';
+
+    setTimeout(function() {
+      var result = searchSeat(name);
+      btn.disabled = false;
+      btn.textContent = "查 询 座 位";
+
+      if (result) {
+        showResult(result);
+      } else {
+        showNotFound(name);
+      }
+    }, 400);
+  }
+
+  // 事件绑定
+  document.getElementById("search-btn").addEventListener("click", doSearch);
+
+  document.getElementById("name-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      doSearch();
+    }
+  });
+
+  document.getElementById("back-btn").addEventListener("click", function() {
+    document.getElementById("name-input").value = "";
+    showView("view-input");
+    setTimeout(function() { document.getElementById("name-input").focus(); }, 100);
+  });
+
+  document.getElementById("retry-btn").addEventListener("click", function() {
+    document.getElementById("name-input").value = "";
+    showView("view-input");
+    setTimeout(function() { document.getElementById("name-input").focus(); }, 100);
+  });
+
+  // 页面加载后自动聚焦输入框
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      document.getElementById("name-input").focus();
+    }, 300);
+  });
+</script>
+
+</body>
+</html>
