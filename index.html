@@ -100,13 +100,36 @@
   document.getElementById("meeting-title").textContent=CONFIG.meetingTitle;
   document.getElementById("meeting-subtitle").textContent=CONFIG.meetingSubtitle;
   document.getElementById("footer-text").textContent=CONFIG.footerText;
+  if(typeof SEAT_DATA==="undefined"||!SEAT_DATA){
+    console.error("座位数据加载失败！SEAT_DATA未定义");
+    document.querySelector(".form-card").insertAdjacentHTML("beforeend",'<div style="margin-top:16px;padding:12px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);border-radius:8px;color:#F87171;font-size:13px;">数据加载失败，请刷新页面重试</div>');
+  }else{console.log("座位数据加载成功，共"+SEAT_DATA.length+"条记录")}
   function showView(id){document.querySelectorAll(".view").forEach(function(v){v.classList.remove("active")});document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
   function normalizeName(n){return n.replace(/\s+/g,"").toLowerCase()}
-  function searchSeat(input){var q=normalizeName(input);if(!q)return null;for(var i=0;i<SEAT_DATA.length;i++){if(normalizeName(SEAT_DATA[i].name)===q)return SEAT_DATA[i]}var m=[];for(var j=0;j<SEAT_DATA.length;j++){var dn=normalizeName(SEAT_DATA[j].name);if(dn.indexOf(q)!==-1||q.indexOf(dn)!==-1)m.push(SEAT_DATA[j])}if(m.length>=1)return m[0];return null}
+  function searchSeat(input){
+    var q=normalizeName(input);if(!q)return null;
+    if(typeof SEAT_DATA==="undefined"||!SEAT_DATA||!SEAT_DATA.length){console.error("SEAT_DATA未定义或为空");return null}
+    for(var i=0;i<SEAT_DATA.length;i++){if(normalizeName(SEAT_DATA[i].name)===q)return SEAT_DATA[i]}
+    var m=[];for(var j=0;j<SEAT_DATA.length;j++){var dn=normalizeName(SEAT_DATA[j].name);if(dn.indexOf(q)!==-1||q.indexOf(dn)!==-1)m.push(SEAT_DATA[j])}
+    if(m.length>=1)return m[0];return null
+  }
   function showResult(d){document.getElementById("result-name").textContent=d.name;document.getElementById("result-seat-combined").textContent=d.display;showView("view-result")}
   function showNotFound(n){var d=document.getElementById("notfound-desc");if(n&&n.trim()){d.innerHTML="未找到姓名为「"+escapeHtml(n.trim())+"」的座位信息<br>请确认与报名时登记的姓名一致，或联系现场工作人员"}else{d.innerHTML="请输入您的姓名进行查询<br>如有疑问请联系现场工作人员"}showView("view-notfound")}
   function escapeHtml(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
-  function doSearch(){var i=document.getElementById("name-input");var b=document.getElementById("search-btn");var n=i.value;if(!n||!n.trim()){i.focus();i.style.borderColor="var(--error)";setTimeout(function(){i.style.borderColor=""},1500);return}b.disabled=true;b.innerHTML='<span class="loading"></span>';setTimeout(function(){var r=searchSeat(n);b.disabled=false;b.textContent="查 询 座 位";if(r)showResult(r);else showNotFound(n)},400)}
+  function doSearch(){
+    var i=document.getElementById("name-input");var b=document.getElementById("search-btn");var n=i.value;
+    if(!n||!n.trim()){i.focus();i.style.borderColor="var(--error)";setTimeout(function(){i.style.borderColor=""},1500);return}
+    b.disabled=true;b.innerHTML='<span class="loading"></span>';
+    setTimeout(function(){
+      try{
+        var r=searchSeat(n);b.disabled=false;b.textContent="查 询 座 位";
+        if(r)showResult(r);else showNotFound(n)
+      }catch(e){
+        console.error("查询出错:",e);b.disabled=false;b.textContent="查 询 座 位";
+        alert("查询出错："+e.message+"\n请刷新页面重试")
+      }
+    },400)
+  }
   document.getElementById("search-btn").addEventListener("click",doSearch);
   document.getElementById("name-input").addEventListener("keydown",function(e){if(e.key==="Enter")doSearch()});
   document.getElementById("back-btn").addEventListener("click",function(){document.getElementById("name-input").value="";showView("view-input");setTimeout(function(){document.getElementById("name-input").focus()},100)});
