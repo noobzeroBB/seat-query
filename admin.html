@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>座位查询系统 - 管理后台</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<style>
+  :root{--bg-deep:#0B1120;--bg-card:#131B2E;--bg-card-light:#1A2440;--accent:#D4A853;--accent-soft:rgba(212,168,83,.12);--text-primary:#F1F5F9;--text-secondary:#94A3B8;--text-muted:#64748B;--border:rgba(212,168,83,.2);--success:#34D399;--error:#F87171;--info:#60A5FA;--radius:12px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh;padding:20px}
+  .container{max-width:900px;margin:0 auto}
+  .header{text-align:center;margin-bottom:32px;padding:24px}
+  .header h1{font-size:24px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:2px}
+  .header p{font-size:13px;color:var(--text-muted)}
+  .steps{display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap}
+  .step{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:20px;background:var(--bg-card);border:1px solid var(--border);font-size:13px;color:var(--text-muted);transition:all .3s}
+  .step.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+  .step.done{background:rgba(52,211,153,.1);border-color:var(--success);color:var(--success)}
+  .step-num{width:22px;height:22px;border-radius:50%;background:var(--bg-card-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+  .step.active .step-num{background:var(--accent);color:var(--bg-deep)}
+  .step.done .step-num{background:var(--success);color:var(--bg-deep)}
+  .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+  .card-title{font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .card-title::before{content:"";width:4px;height:18px;background:var(--accent);border-radius:2px}
+  .form-group{margin-bottom:16px}
+  .form-label{display:block;font-size:13px;color:var(--text-secondary);margin-bottom:8px}
+  .form-input{width:100%;height:44px;background:var(--bg-card-light);border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:0 14px;font-size:14px;color:var(--text-primary);font-family:inherit;outline:none;transition:border-color .2s}
+  .form-input:focus{border-color:var(--accent)}
+  .form-input::placeholder{color:var(--text-muted)}
+  .form-textarea{width:100%;min-height:120px;background:var(--bg-card-light);border:1px solid rgba(148,163,184,.15);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--text-primary);font-family:"Consolas","Monaco",monospace;outline:none;resize:vertical;transition:border-color .2s}
+  .form-textarea:focus{border-color:var(--accent)}
+  .btn{height:44px;padding:0 24px;border:none;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;letter-spacing:1px}
+  .btn-primary{background:var(--accent);color:var(--bg-deep)}
+  .btn-primary:hover{background:#C49A45}
+  .btn-primary:disabled{opacity:.5;cursor:not-allowed}
+  .btn-secondary{background:var(--bg-card-light);color:var(--text-secondary);border:1px solid rgba(148,163,184,.2)}
+  .btn-secondary:hover{background:rgba(148,163,184,.1)}
+  .btn-group{display:flex;gap:12px;flex-wrap:wrap}
+  .upload-area{border:2px dashed var(--border);border-radius:var(--radius);padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg-card-light)}
+  .upload-area:hover,.upload-area.dragover{border-color:var(--accent);background:var(--accent-soft)}
+  .upload-area svg{width:48px;height:48px;stroke:var(--text-muted);fill:none;stroke-width:1.5;margin-bottom:12px}
+  .upload-area:hover svg{stroke:var(--accent)}
+  .upload-text{font-size:14px;color:var(--text-secondary);margin-bottom:4px}
+  .upload-hint{font-size:12px;color:var(--text-muted)}
+  .table-wrap{overflow-x:auto;border-radius:8px;border:1px solid rgba(148,163,184,.1)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{background:var(--bg-card-light);padding:10px 14px;text-align:left;font-weight:600;color:var(--accent);border-bottom:1px solid var(--border);white-space:nowrap}
+  td{padding:10px 14px;border-bottom:1px solid rgba(148,163,184,.08);color:var(--text-secondary)}
+  tr:hover td{background:rgba(212,168,83,.04)}
+  .table-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px}
+  .table-count{color:var(--accent);font-weight:600}
+  .alert{padding:12px 16px;border-radius:8px;font-size:13px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px}
+  .alert-info{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);color:var(--info)}
+  .alert-success{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--success)}
+  .alert-error{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--error)}
+  .alert-warn{background:rgba(212,168,83,.1);border:1px solid rgba(212,168,83,.3);color:var(--accent)}
+  .log-box{background:#0a0f1a;border:1px solid rgba(148,163,184,.1);border-radius:8px;padding:16px;font-family:"Consolas","Monaco",monospace;font-size:12px;line-height:1.8;max-height:200px;overflow-y:auto;margin-top:16px}
+  .log-line{color:var(--text-muted)}
+  .log-line.success{color:var(--success)}
+  .log-line.error{color:var(--error)}
+  .log-line.info{color:var(--info)}
+  .link-box{background:var(--bg-card-light);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:12px}
+  .link-label{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+  .link-url{font-size:14px;color:var(--accent);word-break:break-all;font-family:"Consolas",monospace}
+  .hidden{display:none!important}
+  .loading{display:inline-block;width:16px;height:16px;border:2px solid rgba(11,17,32,.3);border-top-color:var(--bg-deep);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .help-text{font-size:12px;color:var(--text-muted);line-height:1.7;margin-top:8px}
+  .help-text code{background:var(--bg-card-light);padding:2px 6px;border-radius:4px;font-size:11px;color:var(--accent)}
+  .divider{height:1px;background:var(--border);margin:20px 0}
+  .tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--bg-card-light);padding:4px;border-radius:8px}
+  .tab{flex:1;padding:10px;text-align:center;font-size:13px;color:var(--text-muted);cursor:pointer;border-radius:6px;transition:all .2s}
+  .tab.active{background:var(--accent);color:var(--bg-deep);font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>座位查询系统 - 管理后台</h1>
+    <p>上传座位数据，一键发布更新</p>
+  </div>
+  <div class="steps">
+    <div class="step active" id="step1"><span class="step-num">1</span><span>配置Token</span></div>
+    <div class="step" id="step2"><span class="step-num">2</span><span>上传数据</span></div>
+    <div class="step" id="step3"><span class="step-num">3</span><span>预览确认</span></div>
+    <div class="step" id="step4"><span class="step-num">4</span><span>发布上线</span></div>
+  </div>
+
+  <div class="card" id="card-token">
+    <div class="card-title">GitHub Token 配置</div>
+    <div class="alert alert-info"><div>需要GitHub Personal Access Token才能自动发布更新。Token仅保存在您的浏览器本地（localStorage），不会上传到任何服务器。</div></div>
+    <div class="form-group"><label class="form-label">GitHub 用户名</label><input type="text" class="form-input" id="github-owner" placeholder="例如：noobzeroBB" value="noobzeroBB"></div>
+    <div class="form-group"><label class="form-label">仓库名称</label><input type="text" class="form-input" id="github-repo" placeholder="例如：seat-query" value="seat-query"></div>
+    <div class="form-group"><label class="form-label">Personal Access Token</label><input type="password" class="form-input" id="github-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"><div class="help-text">获取方式：GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token<br>勾选权限：<code>repo</code>（完整仓库访问权限）</div></div>
+    <div class="btn-group"><button class="btn btn-primary" id="btn-save-token">保存并验证</button><button class="btn btn-secondary" id="btn-clear-token">清除已保存的Token</button></div>
+    <div id="token-status"></div>
+  </div>
+
+  <div class="card hidden" id="card-upload">
+    <div class="card-title">上传座位数据</div>
+    <div class="tabs"><div class="tab active" data-tab="csv">上传CSV文件</div><div class="tab" data-tab="paste">粘贴Excel数据</div></div>
+    <div id="tab-csv">
+      <div class="upload-area" id="upload-area">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <div class="upload-text">点击选择CSV文件，或拖拽文件到此处</div>
+        <div class="upload-hint">支持 .csv 格式；Excel文件请先「另存为CSV」</div>
+        <input type="file" id="file-input" accept=".csv" style="display:none">
+      </div>
+    </div>
+    <div id="tab-paste" class="hidden">
+      <div class="form-group"><label class="form-label">从Excel复制数据，粘贴到下方（含表头）</label><textarea class="form-textarea" id="paste-area" placeholder="姓名&#9;排数&#9;座位号&#9;区域&#10;张三&#9;1&#9;1&#9;VIP区&#10;李四&#9;2&#9;5&#9;A区"></textarea><div class="help-text">在Excel中选中数据区域（含表头行），按 Ctrl+C 复制，然后粘贴到上方文本框。<br>列顺序要求：<code>姓名</code>、<code>排数</code>、<code>座位号</code>、<code>区域</code>（区域列可留空）</div></div>
+      <button class="btn btn-primary" id="btn-parse-paste">解析数据</button>
+    </div>
+    <div id="upload-status"></div>
+  </div>
+
+  <div class="card hidden" id="card-preview">
+    <div class="card-title">数据预览确认</div>
+    <div class="table-info"><span>共解析到 <span class="table-count" id="data-count">0</span> 条座位数据</span><button class="btn btn-secondary" id="btn-reupload" style="height:36px;padding:0 16px;font-size:12px">重新上传</button></div>
+    <div class="table-wrap"><table><thead><tr><th style="width:50px">序号</th><th>姓名</th><th>排数</th><th>座位号</th><th>区域</th></tr></thead><tbody id="preview-body"></tbody></table></div>
+    <div class="divider"></div>
+    <div class="alert alert-warn"><div>请仔细核对以上数据。发布后将覆盖线上现有座位数据，参会者查询时将使用新数据。</div></div>
+    <div class="btn-group"><button class="btn btn-primary" id="btn-publish">确认并发布</button><button class="btn btn-secondary" id="btn-back-upload">返回修改</button></div>
+  </div>
+
+  <div class="card hidden" id="card-result">
+    <div class="card-title">发布结果</div>
+    <div id="publish-result"></div>
+    <div class="btn-group" style="margin-top:20px"><button class="btn btn-primary" id="btn-new-upload">继续上传新数据</button><button class="btn btn-secondary" id="btn-open-site">打开查询页面</button></div>
+  </div>
+</div>
+
+<script>
+var parsedData=[];
+function $(id){return document.getElementById(id)}
+function showStep(n){for(var i=1;i<=4;i++){var el=$("step"+i);el.classList.remove("active","done");if(i<n)el.classList.add("done");if(i===n)el.classList.add("active")}}
+function showAlert(cid,type,msg){$(cid).innerHTML='<div class="alert alert-'+type+'"><div>'+msg+'</div></div>'}
+function clearAlert(cid){$(cid).innerHTML=""}
+function b64EncodeUnicode(str){return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(m,p1){return String.fromCharCode("0x"+p1)}))}
+function parseCSV(text){var lines=text.split(/\r?\n/).filter(function(l){return l.trim()});if(lines.length<2)return[];var firstLine=lines[0];var delimiter=firstLine.indexOf("\t")>-1?"\t":",";var result=[];for(var i=1;i<lines.length;i++){var cols=splitCSVLine(lines[i],delimiter);if(cols.length>=3&&cols[0].trim()){result.push({name:cols[0].trim(),row:parseInt(cols[1].trim(),10),seat:parseInt(cols[2].trim(),10),area:cols.length>3?cols[3].trim():""})}}return result}
+function splitCSVLine(line,delimiter){var result=[],current="",inQuotes=false;for(var i=0;i<line.length;i++){var ch=line[i];if(ch==='"'){inQuotes=!inQuotes}else if(ch===delimiter&&!inQuotes){result.push(current);current=""}else{current+=ch}}result.push(current);return result}
+function renderPreview(data){var tbody=$("preview-body");tbody.innerHTML="";data.forEach(function(item,idx){var tr=document.createElement("tr");tr.innerHTML="<td>"+(idx+1)+"</td><td>"+escapeHtml(item.name)+"</td><td>第 "+item.row+" 排</td><td>"+item.seat+" 号</td><td>"+escapeHtml(item.area||"-")+"</td>";tbody.appendChild(tr)});$("data-count").textContent=data.length}
+function escapeHtml(text){var div=document.createElement("div");div.textContent=text;return div.innerHTML}
+function githubApi(method,path,token,body){var url="https://api.github.com"+path;var options={method:method,headers:{Authorization:"token "+token,Accept:"application/vnd.github.v3+json","Content-Type":"application/json"}};if(body)options.body=JSON.stringify(body);return fetch(url,options).then(function(res){return res.json().then(function(data){return{ok:res.ok,status:res.status,data:data}})})}
+function verifyToken(owner,token){return githubApi("GET","/user",token).then(function(res){return res.ok&&res.data.login===owner})}
+function getFileSha(owner,repo,path,branch,token){return githubApi("GET","/repos/"+owner+"/"+repo+"/contents/"+path+"?ref="+branch,token).then(function(res){if(res.ok&&res.data.sha)return res.data.sha;return null})}
+function updateFile(owner,repo,path,content,message,branch,token,sha){var body={message:message,content:b64EncodeUnicode(content),branch:branch};if(sha)body.sha=sha;return githubApi("PUT","/repos/"+owner+"/"+repo+"/contents/"+path,token,body)}
+function generateSeatsJS(data){var lines=["/* ============================================================"," *  座位数据文件 —— 通过管理后台自动更新，请勿手动编辑"," *  更新时间："+new Date().toLocaleString("zh-CN")," * ============================================================ */","window.SEAT_DATA = ["];data.forEach(function(item,idx){var comma=idx<data.length-1?",":"";lines.push('  { name: "'+item.name.replace(/"/g,'\\"')+'", row: '+item.row+', seat: '+item.seat+', area: "'+(item.area||"").replace(/"/g,'\\"')+'" }'+comma)});lines.push("];");return lines.join("\n")}
+document.querySelectorAll(".tab").forEach(function(tab){tab.addEventListener("click",function(){document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active")});tab.classList.add("active");var target=tab.dataset.tab;$("tab-csv").classList.toggle("hidden",target!=="csv");$("tab-paste").classList.toggle("hidden",target!=="paste")})});
+$("btn-save-token").addEventListener("click",function(){var owner=$("github-owner").value.trim(),repo=$("github-repo").value.trim(),token=$("github-token").value.trim();if(!owner||!repo||!token){showAlert("token-status","error","请填写完整的用户名、仓库名和Token");return}var btn=$("btn-save-token");btn.disabled=true;btn.innerHTML='<span class="loading"></span>验证中...';verifyToken(owner,token).then(function(valid){btn.disabled=false;btn.innerHTML="保存并验证";if(valid){localStorage.setItem("seat_query_owner",owner);localStorage.setItem("seat_query_repo",repo);localStorage.setItem("seat_query_token",token);showAlert("token-status","success","Token验证成功！已保存到本地。");setTimeout(function(){$("card-token").classList.add("hidden");$("card-upload").classList.remove("hidden");showStep(2)},800)}else{showAlert("token-status","error","Token验证失败，请检查Token是否正确，或是否有repo权限。")}}).catch(function(){btn.disabled=false;btn.innerHTML="保存并验证";showAlert("token-status","error","网络错误，无法连接GitHub API。")})});
+$("btn-clear-token").addEventListener("click",function(){localStorage.removeItem("seat_query_owner");localStorage.removeItem("seat_query_repo");localStorage.removeItem("seat_query_token");$("github-token").value="";clearAlert("token-status");showAlert("token-status","info","已清除本地保存的Token。")});
+window.addEventListener("load",function(){var so=localStorage.getItem("seat_query_owner"),sr=localStorage.getItem("seat_query_repo"),st=localStorage.getItem("seat_query_token");if(so)$("github-owner").value=so;if(sr)$("github-repo").value=sr;if(st){$("github-token").value=st;showAlert("token-status","info","检测到已保存的Token，点击「保存并验证」即可继续。")}});
+var uploadArea=$("upload-area"),fileInput=$("file-input");
+uploadArea.addEventListener("click",function(){fileInput.click()});
+uploadArea.addEventListener("dragover",function(e){e.preventDefault();uploadArea.classList.add("dragover")});
+uploadArea.addEventListener("dragleave",function(){uploadArea.classList.remove("dragover")});
+uploadArea.addEventListener("drop",function(e){e.preventDefault();uploadArea.classList.remove("dragover");if(e.dataTransfer.files.length>0)handleFile(e.dataTransfer.files[0])});
+fileInput.addEventListener("change",function(){if(fileInput.files.length>0)handleFile(fileInput.files[0])});
+function handleFile(file){if(!file.name.toLowerCase().endsWith(".csv")){showAlert("upload-status","error","请上传CSV格式文件。Excel文件请先「另存为CSV」。");return}var reader=new FileReader();reader.onload=function(e){var text=e.target.result;if(text.charCodeAt(0)===0xFEFF)text=text.substring(1);processData(text)};reader.onerror=function(){showAlert("upload-status","error","文件读取失败。")};reader.readAsText(file,"UTF-8")}
+$("btn-parse-paste").addEventListener("click",function(){var text=$("paste-area").value.trim();if(!text){showAlert("upload-status","error","请先粘贴数据。");return}processData(text)});
+function processData(text){parsedData=parseCSV(text);if(parsedData.length===0){showAlert("upload-status","error","未解析到有效数据。请检查文件格式，确保包含表头行且列顺序正确：姓名、排数、座位号、区域。");return}var errors=[];parsedData.forEach(function(item,idx){if(!item.name)errors.push("第"+(idx+2)+"行：姓名为空");if(!item.row||isNaN(item.row))errors.push("第"+(idx+2)+"行：排数不是有效数字");if(!item.seat||isNaN(item.seat))errors.push("第"+(idx+2)+"行：座位号不是有效数字")});if(errors.length>0){showAlert("upload-status","error","数据校验失败：<br>"+errors.slice(0,5).join("<br>")+(errors.length>5?"<br>...共"+errors.length+"个错误":""));return}clearAlert("upload-status");renderPreview(parsedData);$("card-upload").classList.add("hidden");$("card-preview").classList.remove("hidden");showStep(3)}
+$("btn-reupload").addEventListener("click",function(){$("card-preview").classList.add("hidden");$("card-upload").classList.remove("hidden");showStep(2);fileInput.value=""});
+$("btn-back-upload").addEventListener("click",function(){$("card-preview").classList.add("hidden");$("card-upload").classList.remove("hidden");showStep(2)});
+$("btn-publish").addEventListener("click",function(){var owner=localStorage.getItem("seat_query_owner"),repo=localStorage.getItem("seat_query_repo"),token=localStorage.getItem("seat_query_token");if(!owner||!repo||!token){alert("Token信息丢失，请重新配置。");location.reload();return}var btn=$("btn-publish");btn.disabled=true;btn.innerHTML='<span class="loading"></span>发布中...';var branch="gh-pages";var content=generateSeatsJS(parsedData);var message="Update seat data: "+parsedData.length+" records at "+new Date().toLocaleString("zh-CN");getFileSha(owner,repo,"seats.js",branch,token).then(function(sha){return updateFile(owner,repo,"seats.js",content,message,branch,token,sha)}).then(function(res){btn.disabled=false;btn.innerHTML="确认并发布";if(res.ok){showStep(4);$("card-preview").classList.add("hidden");$("card-result").classList.remove("hidden");var siteUrl="https://"+owner+".github.io/"+repo+"/";$("publish-result").innerHTML='<div class="alert alert-success"><div><strong>发布成功！</strong> 已更新 '+parsedData.length+' 条座位数据。</div></div><div class="log-box"><div class="log-line success">[成功] 数据已提交到GitHub仓库</div><div class="log-line info">[信息] 分支: '+branch+'</div><div class="log-line info">[信息] 文件: seats.js</div><div class="log-line info">[信息] 记录数: '+parsedData.length+'</div><div class="log-line info">[信息] 提交时间: '+new Date().toLocaleString("zh-CN")+'</div></div><div class="link-box"><div class="link-label">查询页面访问地址（参会者扫码访问）</div><div class="link-url">'+siteUrl+'</div></div><div class="link-box"><div class="link-label">管理后台地址（仅管理员使用）</div><div class="link-url">'+siteUrl+'admin.html</div></div><div class="alert alert-info" style="margin-top:16px"><div>GitHub Pages通常需要1-3分钟生效。如果页面未更新，请稍等片刻后刷新。</div></div>'}else{showAlert("upload-status","error","发布失败："+(res.data.message||"未知错误")+(res.data.documentation_url?"<br>"+res.data.documentation_url:""));$("card-preview").classList.add("hidden");$("card-upload").classList.remove("hidden");showStep(2)}}).catch(function(err){btn.disabled=false;btn.innerHTML="确认并发布";showAlert("upload-status","error","网络错误："+err.message)})});
+$("btn-new-upload").addEventListener("click",function(){$("card-result").classList.add("hidden");$("card-upload").classList.remove("hidden");showStep(2);parsedData=[];fileInput.value="";$("paste-area").value=""});
+$("btn-open-site").addEventListener("click",function(){var owner=localStorage.getItem("seat_query_owner"),repo=localStorage.getItem("seat_query_repo");window.open("https://"+owner+".github.io/"+repo+"/","_blank")});
+</script>
+</body>
+</html>
