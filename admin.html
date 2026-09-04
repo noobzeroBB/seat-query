@@ -112,7 +112,7 @@
   <div class="card hidden" id="card-preview">
     <div class="card-title">数据预览确认</div>
     <div class="table-info"><span>共解析到 <span class="table-count" id="data-count">0</span> 条座位数据</span><button class="btn btn-secondary" id="btn-reupload" style="height:36px;padding:0 16px;font-size:12px">重新上传</button></div>
-    <div class="table-wrap"><table><thead><tr><th style="width:50px">序号</th><th>姓名</th><th>排数</th><th>座位号</th><th>区域</th></tr></thead><tbody id="preview-body"></tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th style="width:50px">序号</th><th>姓名</th><th>座位</th><th>区域</th></tr></thead><tbody id="preview-body"></tbody></table></div>
     <div class="divider"></div>
     <div class="alert alert-warn"><div>请仔细核对以上数据。发布后将覆盖线上现有座位数据，参会者查询时将使用新数据。</div></div>
     <div class="btn-group"><button class="btn btn-primary" id="btn-publish">确认并发布</button><button class="btn btn-secondary" id="btn-back-upload">返回修改</button></div>
@@ -132,7 +132,8 @@ function clearAlert(cid){$(cid).innerHTML=""}
 function b64EncodeUnicode(str){return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(m,p1){return String.fromCharCode("0x"+p1)}))}
 function parseCSV(text){var lines=text.split(/\r?\n/).filter(function(l){return l.trim()});if(lines.length<2)return[];var delimiter=lines[0].indexOf("\t")>-1?"\t":",";var result=[];for(var i=1;i<lines.length;i++){var cols=splitCSVLine(lines[i],delimiter);if(cols.length>=3&&cols[0].trim()){result.push({name:cols[0].trim(),row:parseInt(cols[1].trim(),10),seat:parseInt(cols[2].trim(),10),area:cols.length>3?cols[3].trim():""})}}return result}
 function splitCSVLine(line,delimiter){var result=[],current="",inQuotes=false;for(var i=0;i<line.length;i++){var ch=line[i];if(ch==='"'){inQuotes=!inQuotes}else if(ch===delimiter&&!inQuotes){result.push(current);current=""}else{current+=ch}}result.push(current);return result}
-function renderPreview(data){var tbody=$("preview-body");tbody.innerHTML="";data.forEach(function(item,idx){var tr=document.createElement("tr");tr.innerHTML="<td>"+(idx+1)+"</td><td>"+escapeHtml(item.name)+"</td><td>第 "+item.row+" 排</td><td>"+item.seat+" 号</td><td>"+escapeHtml(item.area||"-")+"</td>";tbody.appendChild(tr)});$("data-count").textContent=data.length}
+function toChineseNum(num){var digits=["零","一","二","三","四","五","六","七","八","九"];if(num<10)return digits[num];if(num===10)return "十";if(num<20)return "十"+digits[num-10];if(num<100){var tens=Math.floor(num/10);var ones=num%10;return digits[tens]+"十"+(ones>0?digits[ones]:"")}if(num===100)return "一百";return num.toString()}
+function renderPreview(data){var tbody=$("preview-body");tbody.innerHTML="";data.forEach(function(item,idx){var tr=document.createElement("tr");var rowCn=toChineseNum(item.row);tr.innerHTML="<td>"+(idx+1)+"</td><td>"+escapeHtml(item.name)+"</td><td>"+rowCn+"排"+item.seat+"号</td><td>"+escapeHtml(item.area||"-")+"</td>";tbody.appendChild(tr)});$("data-count").textContent=data.length}
 function escapeHtml(text){var div=document.createElement("div");div.textContent=text;return div.innerHTML}
 function githubApi(method,path,token,body){var url="https://api.github.com"+path;var options={method:method,headers:{Authorization:"token "+token,Accept:"application/vnd.github.v3+json","Content-Type":"application/json"}};if(body)options.body=JSON.stringify(body);return fetch(url,options).then(function(res){return res.json().then(function(data){return{ok:res.ok,status:res.status,data:data}})})}
 function verifyToken(owner,token){return githubApi("GET","/user",token).then(function(res){return res.ok&&res.data.login===owner})}
