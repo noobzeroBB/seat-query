@@ -102,6 +102,13 @@
         <div class="upload-hint">支持 .csv 格式；Excel文件请先「另存为CSV」</div>
         <input type="file" id="file-input" accept=".csv" style="display:none">
       </div>
+      <div style="text-align:center;margin-top:16px">
+        <a href="座位查询数据模板.xlsx" download="座位查询数据模板.xlsx" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--bg-card-light);border:1px solid var(--border);border-radius:8px;color:var(--accent);text-decoration:none;font-size:13px;font-weight:500;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.background='var(--accent-soft)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-card-light)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          下载Excel模板
+        </a>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:8px">下载模板后填写数据，保存为CSV格式再上传</div>
+      </div>
     </div>
     <div id="tab-paste" class="hidden">
       <div class="form-group"><label class="form-label">从Excel复制数据，粘贴到下方（含表头）</label><textarea class="form-textarea" id="paste-area" placeholder="姓名&#9;显示结果&#10;李红飞&#9;二排10号&#10;张三&#9;三排5号"></textarea><div class="help-text">在Excel中选中数据区域（含表头行），按 Ctrl+C 复制，然后粘贴到上方文本框。<br>列顺序要求：<code>姓名</code>、<code>显示结果</code>（显示结果填最终要展示的文字，如"二排10号"）</div></div>
