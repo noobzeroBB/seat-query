@@ -2,139 +2,188 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>座位查询</title>
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>综合查询系统</title>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
 <style>
-  :root{--bg-deep:#0B1120;--bg-card:#131B2E;--bg-card-light:#1A2440;--accent:#D4A853;--accent-soft:rgba(212,168,83,.12);--text-primary:#F1F5F9;--text-secondary:#94A3B8;--text-muted:#64748B;--border:rgba(212,168,83,.2);--error:#F87171;--radius:16px}
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{height:100%;font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text-primary);overflow-x:hidden}
-  body{min-height:100vh;display:flex;flex-direction:column;align-items:center;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(212,168,83,.08) 0%,transparent 60%),var(--bg-deep)}
-  .app{width:100%;max-width:480px;min-height:100vh;display:flex;flex-direction:column;padding:0 24px;position:relative}
-  .view{display:none;flex:1;flex-direction:column;justify-content:center;animation:fadeIn .35s ease}
-  .view.active{display:flex}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-  .brand{text-align:center;margin-bottom:48px}
-  .brand-mark{width:56px;height:56px;margin:0 auto 20px;border:1.5px solid var(--accent);border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--accent-soft)}
-  .brand-mark svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .brand-title{font-size:22px;font-weight:700;letter-spacing:2px;color:var(--text-primary);margin-bottom:8px}
-  .brand-subtitle{font-size:13px;color:var(--text-muted);letter-spacing:1px;font-weight:300}
-  .form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;margin-bottom:24px}
-  .form-label{display:block;font-size:14px;color:var(--text-secondary);margin-bottom:12px;font-weight:400;letter-spacing:.5px}
-  .input-wrap{position:relative;margin-bottom:24px}
-  .input-wrap input{width:100%;height:52px;background:var(--bg-card-light);border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:0 16px;font-size:16px;color:var(--text-primary);font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
-  .input-wrap input::placeholder{color:var(--text-muted);font-size:15px}
-  .input-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-  .btn{width:100%;height:52px;border:none;border-radius:12px;font-size:16px;font-weight:500;font-family:inherit;cursor:pointer;transition:all .2s;letter-spacing:2px}
-  .btn-primary{background:var(--accent);color:#0B1120;font-weight:700}
-  .btn-primary:active{transform:scale(.98);background:#C49A45}
-  .btn-ghost{background:transparent;color:var(--text-secondary);border:1px solid rgba(148,163,184,.2);margin-top:12px}
-  .btn-ghost:active{background:rgba(148,163,184,.08)}
-  .hint{text-align:center;font-size:12px;color:var(--text-muted);margin-top:20px;line-height:1.8}
-  .ticket{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:24px;position:relative}
-  .ticket-header{padding:28px 24px 20px;text-align:center;border-bottom:1px dashed var(--border);position:relative}
-  .ticket-header::before,.ticket-header::after{content:"";position:absolute;bottom:-10px;width:20px;height:20px;background:var(--bg-deep);border-radius:50%}
-  .ticket-header::before{left:-10px}.ticket-header::after{right:-10px}
-  .ticket-name{font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:6px;letter-spacing:1px}
-  .ticket-label{font-size:12px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase}
-  .ticket-body{padding:36px 24px 32px;text-align:center}
-  .seat-display{margin-bottom:8px}
-  .seat-row-label{font-size:13px;color:var(--text-secondary);margin-bottom:16px;letter-spacing:3px}
-  .seat-combined{font-size:48px;font-weight:900;color:var(--accent);line-height:1.4;letter-spacing:2px}
-  .not-found{text-align:center;padding:48px 24px}
-  .not-found-icon{width:64px;height:64px;margin:0 auto 24px;border-radius:50%;background:rgba(248,113,113,.1);display:flex;align-items:center;justify-content:center}
-  .not-found-icon svg{width:32px;height:32px;stroke:var(--error);fill:none;stroke-width:1.8;stroke-linecap:round}
-  .not-found-title{font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:10px}
-  .not-found-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:32px}
-  .footer{text-align:center;padding:24px 0;font-size:11px;color:var(--text-muted);letter-spacing:1px;margin-top:auto}
-  .loading{display:inline-block;width:20px;height:20px;border:2px solid rgba(11,17,32,.3);border-top-color:#0B1120;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @media (max-width:360px){.app{padding:0 16px}.seat-combined{font-size:38px}.brand-title{font-size:19px}}
-  @media (min-height:700px){.brand{margin-bottom:56px}}
+body { background: #0B1120; color: #F1F5F9; font-family: -apple-system, sans-serif; margin: 0; padding: 20px; }
+.app { max-width: 480px; margin: 0 auto; }
+.tab-bar { display: flex; background: #131B2E; border-radius: 12px; padding: 4px; margin-bottom: 24px; }
+.tab-item { flex: 1; text-align: center; padding: 12px; cursor: pointer; border-radius: 8px; color: #94A3B8; }
+.tab-item.active { background: #D4A853; color: #0B1120; font-weight: bold; }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+.form-card { background: #131B2E; padding: 24px; border-radius: 16px; margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; color: #94A3B8; font-size: 14px; }
+input { width: 100%; height: 48px; background: #1A2440; border: 1px solid #334155; border-radius: 8px; padding: 0 12px; color: #F1F5F9; box-sizing: border-box; margin-bottom: 16px; }
+button { width: 100%; height: 48px; background: #D4A853; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; color: #0B1120; }
+.hotel-card { background: #131B2E; border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
+.hotel-header { padding: 20px; }
+.hotel-name { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
+.hotel-address { color: #94A3B8; font-size: 14px; }
+.hotel-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+.photo-item { position: relative; aspect-ratio: 4/3; background: #1A2440; }
+.photo-item img { width: 100%; height: 100%; object-fit: cover; }
+.photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px; background: rgba(0,0,0,.7); font-size: 12px; }
+.section-title { padding: 16px 20px 8px; font-weight: 600; }
+.transport-list { padding: 0 20px 16px; }
+.transport-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #1E293B; }
+.export-btn { background: linear-gradient(135deg, #D4A853, #B8923E); color: #0B1120; font-weight: bold; margin-bottom: 12px; }
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.7); display: none; align-items: flex-end; justify-content: center; z-index: 1000; }
+.modal-overlay.show { display: flex; }
+.modal-content { background: #131B2E; border-radius: 20px 20px 0 0; width: 100%; max-width: 480px; padding: 24px; }
+.suggest-dropdown { position: absolute; background: #1A2440; border-radius: 8px; margin-top: 4px; max-height: 280px; overflow-y: auto; z-index: 50; display: none; }
+.suggest-dropdown.show { display: block; }
+.suggest-item { padding: 12px 16px; cursor: pointer; }
+.suggest-item:hover { background: rgba(212,168,83,.1); }
 </style>
 </head>
 <body>
 <div class="app">
-  <section class="view active" id="view-input">
-    <div class="brand">
-      <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="2.5"/></svg></div>
-      <div class="brand-title" id="meeting-title">座位查询</div>
-      <div class="brand-subtitle" id="meeting-subtitle">请输入您的姓名查询座位</div>
-    </div>
+  <div class="tab-bar">
+    <div class="tab-item active" data-tab="seat-tab">座位查询</div>
+    <div class="tab-item" data-tab="hotel-tab">酒店查询</div>
+  </div>
+
+  <div class="tab-pane active" id="seat-tab">
     <div class="form-card">
-      <label class="form-label" for="name-input">参会人姓名</label>
-      <div class="input-wrap"><input type="text" id="name-input" placeholder="请输入您的姓名" autocomplete="off" enterkeyhint="search"></div>
-      <button class="btn btn-primary" id="search-btn">查 询 座 位</button>
+      <label>参会人姓名</label>
+      <input type="text" id="name-input" placeholder="请输入您的姓名">
+      <button id="search-btn">查 询 座 位</button>
     </div>
-    <div class="hint">请使用报名时登记的姓名查询<br>如有疑问请联系现场工作人员</div>
-  </section>
-  <section class="view" id="view-result">
-    <div class="brand" style="margin-bottom:32px">
-      <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="2.5"/></svg></div>
-      <div class="brand-title">您的座位信息</div>
+  </div>
+
+  <div class="tab-pane" id="hotel-tab">
+    <div class="form-card">
+      <label>酒店名称</label>
+      <div style="position:relative">
+        <input type="text" id="hotel-input" placeholder="支持名称/区域/城市搜索">
+        <div class="suggest-dropdown" id="hotel-suggest"></div>
+      </div>
+      <button id="hotel-search-btn">查 询 酒 店</button>
     </div>
-    <div class="ticket">
-      <div class="ticket-header"><div class="ticket-name" id="result-name">—</div><div class="ticket-label">ATTENDEE</div></div>
-      <div class="ticket-body">
-        <div class="seat-display">
-          <div class="seat-row-label">您的座位</div>
-          <div class="seat-combined" id="result-seat-combined">—</div>
-        </div>
+    <div id="hotel-detail"></div>
+    <button class="export-btn" id="export-btn" style="display:none">导出酒店推荐Word文档</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="export-modal">
+  <div class="modal-content">
+    <h3 style="margin-top:0">导出酒店推荐文档</h3>
+    <label>会议名称</label>
+    <input type="text" id="doc-meeting-name" placeholder="例如：ICEPG 2024">
+    <label>会议时间</label>
+    <input type="text" id="doc-meeting-date" placeholder="例如：2024年9月27-29日">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div>
+        <label>大床房价格</label>
+        <input type="number" id="doc-price-queen" placeholder="550">
+      </div>
+      <div>
+        <label>双床房价格</label>
+        <input type="number" id="doc-price-twin" placeholder="550">
       </div>
     </div>
-    <button class="btn btn-ghost" id="back-btn">返 回 重 新 查 询</button>
-  </section>
-  <section class="view" id="view-notfound">
-    <div class="not-found">
-      <div class="not-found-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6"/></svg></div>
-      <div class="not-found-title">未查询到座位信息</div>
-      <div class="not-found-desc" id="notfound-desc">请确认输入的姓名与报名时一致<br>或联系现场工作人员协助查询</div>
-      <button class="btn btn-primary" id="retry-btn">重 新 输 入</button>
+    <label>预订联系人</label>
+    <input type="text" id="doc-contact-name" placeholder="张经理">
+    <label>预订电话</label>
+    <input type="tel" id="doc-contact-phone" placeholder="13700000000">
+    <label>预订截止日期</label>
+    <input type="text" id="doc-deadline" placeholder="9月23日前">
+    <div style="display:flex;gap:12px;margin-top:16px">
+      <button id="export-cancel" style="background:#1A2440;color:#94A3B8">取消</button>
+      <button id="export-confirm">生成文档</button>
     </div>
-  </section>
-  <div class="footer" id="footer-text">POWERED BY SEAT QUERY SYSTEM</div>
+  </div>
 </div>
+
 <script src="seats.js"></script>
+<script src="hotels.js"></script>
 <script>
-  const CONFIG={meetingTitle:"座位查询",meetingSubtitle:"请输入您的姓名查询座位",footerText:"POWERED BY SEAT QUERY SYSTEM"};
-  document.getElementById("meeting-title").textContent=CONFIG.meetingTitle;
-  document.getElementById("meeting-subtitle").textContent=CONFIG.meetingSubtitle;
-  document.getElementById("footer-text").textContent=CONFIG.footerText;
-  if(typeof SEAT_DATA==="undefined"||!SEAT_DATA){
-    console.error("座位数据加载失败！SEAT_DATA未定义");
-    document.querySelector(".form-card").insertAdjacentHTML("beforeend",'<div style="margin-top:16px;padding:12px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);border-radius:8px;color:#F87171;font-size:13px;">数据加载失败，请刷新页面重试</div>');
-  }else{console.log("座位数据加载成功，共"+SEAT_DATA.length+"条记录")}
-  function showView(id){document.querySelectorAll(".view").forEach(function(v){v.classList.remove("active")});document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
-  function normalizeName(n){return n.replace(/\s+/g,"").toLowerCase()}
-  function searchSeat(input){
-    var q=normalizeName(input);if(!q)return null;
-    if(typeof SEAT_DATA==="undefined"||!SEAT_DATA||!SEAT_DATA.length){console.error("SEAT_DATA未定义或为空");return null}
-    for(var i=0;i<SEAT_DATA.length;i++){if(normalizeName(SEAT_DATA[i].name)===q)return SEAT_DATA[i]}
-    var m=[];for(var j=0;j<SEAT_DATA.length;j++){var dn=normalizeName(SEAT_DATA[j].name);if(dn.indexOf(q)!==-1||q.indexOf(dn)!==-1)m.push(SEAT_DATA[j])}
-    if(m.length>=1)return m[0];return null
+var currentHotel = null;
+var tabs = document.querySelectorAll(".tab-item");
+for (var i = 0; i < tabs.length; i++) {
+  tabs[i].addEventListener("click", function() {
+    var target = this.getAttribute("data-tab");
+    for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove("active");
+    this.classList.add("active");
+    var panes = document.querySelectorAll(".tab-pane");
+    for (var k = 0; k < panes.length; k++) panes[k].classList.remove("active");
+    document.getElementById(target).classList.add("active");
+  });
+}
+document.getElementById("hotel-search-btn").addEventListener("click", function() {
+  var keyword = document.getElementById("hotel-input").value.trim();
+  if (!keyword) return;
+  searchHotelAndShow(keyword);
+});
+document.getElementById("hotel-input").addEventListener("input", function() { updateSuggest(this.value); });
+function searchHotelAndShow(keyword) {
+  var q = keyword.toLowerCase(); var found = null;
+  if (typeof HOTEL_DATA !== "undefined") {
+    for (var i = 0; i < HOTEL_DATA.length; i++) {
+      if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) { found = HOTEL_DATA[i]; break; }
+    }
   }
-  function showResult(d){document.getElementById("result-name").textContent=d.name;document.getElementById("result-seat-combined").textContent=d.display;showView("view-result")}
-  function showNotFound(n){var d=document.getElementById("notfound-desc");if(n&&n.trim()){d.innerHTML="未找到姓名为「"+escapeHtml(n.trim())+"」的座位信息<br>请确认与报名时登记的姓名一致，或联系现场工作人员"}else{d.innerHTML="请输入您的姓名进行查询<br>如有疑问请联系现场工作人员"}showView("view-notfound")}
-  function escapeHtml(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
-  function doSearch(){
-    var i=document.getElementById("name-input");var b=document.getElementById("search-btn");var n=i.value;
-    if(!n||!n.trim()){i.focus();i.style.borderColor="var(--error)";setTimeout(function(){i.style.borderColor=""},1500);return}
-    b.disabled=true;b.innerHTML='<span class="loading"></span>';
-    setTimeout(function(){
-      try{
-        var r=searchSeat(n);b.disabled=false;b.textContent="查 询 座 位";
-        if(r)showResult(r);else showNotFound(n)
-      }catch(e){
-        console.error("查询出错:",e);b.disabled=false;b.textContent="查 询 座 位";
-        alert("查询出错："+e.message+"\n请刷新页面重试")
-      }
-    },400)
+  if (found) { currentHotel = found; showHotelDetail(found); document.getElementById("export-btn").style.display = "block"; }
+  else { alert("未找到酒店: " + keyword); }
+}
+function showHotelDetail(hotel) {
+  var html = '<div class="hotel-card"><div class="hotel-header"><div class="hotel-name">' + hotel.name + '</div>';
+  html += '<div class="hotel-address">' + (hotel.address || "") + '</div></div><div class="hotel-photos">';
+  if (hotel.photoQueen) html += '<div class="photo-item"><img src="' + hotel.photoQueen + '"><div class="photo-label">大床房</div></div>';
+  if (hotel.photoTwin) html += '<div class="photo-item"><img src="' + hotel.photoTwin + '"><div class="photo-label">双床房</div></div>';
+  html += '</div>';
+  if (hotel.transport && hotel.transport.length > 0) {
+    html += '<div class="section-title">周边交通枢纽</div><div class="transport-list">';
+    for (var i = 0; i < hotel.transport.length; i++) {
+      var t = hotel.transport[i];
+      html += '<div class="transport-item"><span>' + t.name + '</span><span>' + t.distance + '</span></div>';
+    }
+    html += '</div>';
   }
-  document.getElementById("search-btn").addEventListener("click",doSearch);
-  document.getElementById("name-input").addEventListener("keydown",function(e){if(e.key==="Enter")doSearch()});
-  document.getElementById("back-btn").addEventListener("click",function(){document.getElementById("name-input").value="";showView("view-input");setTimeout(function(){document.getElementById("name-input").focus()},100)});
-  document.getElementById("retry-btn").addEventListener("click",function(){document.getElementById("name-input").value="";showView("view-input");setTimeout(function(){document.getElementById("name-input").focus()},100)});
-  window.addEventListener("load",function(){setTimeout(function(){document.getElementById("name-input").focus()},300)});
+  html += '</div>';
+  document.getElementById("hotel-detail").innerHTML = html;
+}
+function updateSuggest(keyword) {
+  var dropdown = document.getElementById("hotel-suggest"); var q = keyword.trim().toLowerCase();
+  if (!q || typeof HOTEL_DATA === "undefined") { dropdown.classList.remove("show"); return; }
+  var matches = [];
+  for (var i = 0; i < HOTEL_DATA.length; i++) {
+    if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) { matches.push(HOTEL_DATA[i]); if (matches.length >= 8) break; }
+  }
+  if (matches.length === 0) { dropdown.classList.remove("show"); return; }
+  var html = "";
+  for (var j = 0; j < matches.length; j++) html += '<div class="suggest-item" data-name="' + matches[j].name + '">' + matches[j].name + '</div>';
+  dropdown.innerHTML = html; dropdown.classList.add("show");
+  var items = dropdown.querySelectorAll(".suggest-item");
+  for (var k = 0; k < items.length; k++) {
+    items[k].addEventListener("click", function() {
+      document.getElementById("hotel-input").value = this.getAttribute("data-name");
+      dropdown.classList.remove("show");
+      searchHotelAndShow(this.getAttribute("data-name"));
+    });
+  }
+}
+document.getElementById("export-btn").addEventListener("click", function() { document.getElementById("export-modal").classList.add("show"); });
+document.getElementById("export-cancel").addEventListener("click", function() { document.getElementById("export-modal").classList.remove("show"); });
+document.getElementById("export-confirm").addEventListener("click", function() {
+  if (!currentHotel) { alert("请先查询酒店"); return; }
+  if (typeof docx === "undefined") { alert("Word库未加载"); return; }
+  var priceQueen = document.getElementById("doc-price-queen").value.trim() || "550";
+  var priceTwin = document.getElementById("doc-price-twin").value.trim() || "550";
+  var doc = new docx.Document({ sections: [{ children: [
+    new docx.Paragraph({ children: [new docx.TextRun({ text: currentHotel.name, bold: true })] }),
+    new docx.Paragraph({ children: [new docx.TextRun({ text: "大床房: " + priceQueen + "元" })] }),
+    new docx.Paragraph({ children: [new docx.TextRun({ text: "双床房: " + priceTwin + "元" })] }),
+  ]}] });
+  docx.Packer.toBlob(doc).then(function(blob) {
+    saveAs(blob, "酒店推荐.docx");
+    document.getElementById("export-modal").classList.remove("show");
+    alert("文档已生成！");
+  });
+});
 </script>
 </body>
 </html>
