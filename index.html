@@ -221,7 +221,7 @@ document.getElementById("export-cancel").addEventListener("click", function() {
   document.getElementById("export-modal").classList.remove("show");
 });
 
-document.getElementById("export-confirm").addEventListener("click", function() {
+document.getElementById("export-confirm").addEventListener("click", async function() {
   if (!currentHotel) {
     alert("请先查询酒店");
     return;
@@ -243,6 +243,26 @@ document.getElementById("export-confirm").addEventListener("click", function() {
   // 从酒店查询调取
   var hotel = currentHotel;
   var children = [];
+  
+  // 加载图片
+  async function loadImage(url) {
+    try {
+      var response = await fetch(url);
+      var blob = await response.blob();
+      return new Promise(function(resolve) {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          resolve(reader.result.split(',')[1]);
+        };
+        reader.readAsDataURL(blob);
+      });
+    } catch(e) {
+      return null;
+    }
+  }
+  
+  var imgQueen = hotel.photoQueen ? await loadImage(hotel.photoQueen) : null;
+  var imgTwin = hotel.photoTwin ? await loadImage(hotel.photoTwin) : null;
   
   // ===== 英文部分 =====
   // 主标题
@@ -282,6 +302,20 @@ document.getElementById("export-confirm").addEventListener("click", function() {
   children.push(new docx.Paragraph({ 
     children: [new docx.TextRun({ text: "Address: " + (hotel.address || "") })],
   }));
+  
+  // 大床房图片
+  if (imgQueen) {
+    children.push(new docx.Paragraph({ 
+      children: [new docx.ImageRun({ data: imgQueen, transformation: { width: 350, height: 263 } })],
+    }));
+  }
+  
+  // 双床房图片
+  if (imgTwin) {
+    children.push(new docx.Paragraph({ 
+      children: [new docx.ImageRun({ data: imgTwin, transformation: { width: 350, height: 263 } })],
+    }));
+  }
   
   // 大床房价格
   children.push(new docx.Paragraph({ 
@@ -383,6 +417,20 @@ document.getElementById("export-confirm").addEventListener("click", function() {
   
   // 空行
   children.push(new docx.Paragraph({ children: [] }));
+  
+  // 大床房图片
+  if (imgQueen) {
+    children.push(new docx.Paragraph({ 
+      children: [new docx.ImageRun({ data: imgQueen, transformation: { width: 350, height: 263 } })],
+    }));
+  }
+  
+  // 双床房图片
+  if (imgTwin) {
+    children.push(new docx.Paragraph({ 
+      children: [new docx.ImageRun({ data: imgTwin, transformation: { width: 350, height: 263 } })],
+    }));
+  }
   
   // 大床房价格
   children.push(new docx.Paragraph({ 
