@@ -102,38 +102,68 @@ button { width: 100%; height: 48px; background: #D4A853; border: none; border-ra
 <script src="hotels.js"></script>
 <script>
 var currentHotel = null;
+
+// Tab 切换
 var tabs = document.querySelectorAll(".tab-item");
 for (var i = 0; i < tabs.length; i++) {
   tabs[i].addEventListener("click", function() {
     var target = this.getAttribute("data-tab");
-    for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove("active");
+    for (var j = 0; j < tabs.length; j++) {
+      tabs[j].classList.remove("active");
+    }
     this.classList.add("active");
     var panes = document.querySelectorAll(".tab-pane");
-    for (var k = 0; k < panes.length; k++) panes[k].classList.remove("active");
+    for (var k = 0; k < panes.length; k++) {
+      panes[k].classList.remove("active");
+    }
     document.getElementById(target).classList.add("active");
   });
 }
+
+// 酒店查询
 document.getElementById("hotel-search-btn").addEventListener("click", function() {
   var keyword = document.getElementById("hotel-input").value.trim();
   if (!keyword) return;
   searchHotelAndShow(keyword);
 });
-document.getElementById("hotel-input").addEventListener("input", function() { updateSuggest(this.value); });
+
+document.getElementById("hotel-input").addEventListener("input", function() {
+  updateSuggest(this.value);
+});
+
 function searchHotelAndShow(keyword) {
-  var q = keyword.toLowerCase(); var found = null;
+  var q = keyword.toLowerCase();
+  var found = null;
   if (typeof HOTEL_DATA !== "undefined") {
     for (var i = 0; i < HOTEL_DATA.length; i++) {
-      if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) { found = HOTEL_DATA[i]; break; }
+      if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) {
+        found = HOTEL_DATA[i];
+        break;
+      }
     }
   }
-  if (found) { currentHotel = found; showHotelDetail(found); document.getElementById("export-btn").style.display = "block"; }
-  else { alert("未找到酒店: " + keyword); }
+  if (found) {
+    currentHotel = found;
+    showHotelDetail(found);
+    document.getElementById("export-btn").style.display = "block";
+  } else {
+    alert("未找到酒店: " + keyword);
+  }
 }
+
 function showHotelDetail(hotel) {
-  var html = '<div class="hotel-card"><div class="hotel-header"><div class="hotel-name">' + hotel.name + '</div>';
-  html += '<div class="hotel-address">' + (hotel.address || "") + '</div></div><div class="hotel-photos">';
-  if (hotel.photoQueen) html += '<div class="photo-item"><img src="' + hotel.photoQueen + '"><div class="photo-label">大床房</div></div>';
-  if (hotel.photoTwin) html += '<div class="photo-item"><img src="' + hotel.photoTwin + '"><div class="photo-label">双床房</div></div>';
+  var html = '<div class="hotel-card">';
+  html += '<div class="hotel-header">';
+  html += '<div class="hotel-name">' + hotel.name + '</div>';
+  html += '<div class="hotel-address">' + (hotel.address || "") + '</div>';
+  html += '</div>';
+  html += '<div class="hotel-photos">';
+  if (hotel.photoQueen) {
+    html += '<div class="photo-item"><img src="' + hotel.photoQueen + '"><div class="photo-label">大床房</div></div>';
+  }
+  if (hotel.photoTwin) {
+    html += '<div class="photo-item"><img src="' + hotel.photoTwin + '"><div class="photo-label">双床房</div></div>';
+  }
   html += '</div>';
   if (hotel.transport && hotel.transport.length > 0) {
     html += '<div class="section-title">周边交通枢纽</div><div class="transport-list">';
@@ -146,17 +176,32 @@ function showHotelDetail(hotel) {
   html += '</div>';
   document.getElementById("hotel-detail").innerHTML = html;
 }
+
 function updateSuggest(keyword) {
-  var dropdown = document.getElementById("hotel-suggest"); var q = keyword.trim().toLowerCase();
-  if (!q || typeof HOTEL_DATA === "undefined") { dropdown.classList.remove("show"); return; }
+  var dropdown = document.getElementById("hotel-suggest");
+  var q = keyword.trim().toLowerCase();
+  if (!q || typeof HOTEL_DATA === "undefined") {
+    dropdown.classList.remove("show");
+    return;
+  }
   var matches = [];
   for (var i = 0; i < HOTEL_DATA.length; i++) {
-    if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) { matches.push(HOTEL_DATA[i]); if (matches.length >= 8) break; }
+    if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) {
+      matches.push(HOTEL_DATA[i]);
+      if (matches.length >= 8) break;
+    }
   }
-  if (matches.length === 0) { dropdown.classList.remove("show"); return; }
+  if (matches.length === 0) {
+    dropdown.classList.remove("show");
+    return;
+  }
   var html = "";
-  for (var j = 0; j < matches.length; j++) html += '<div class="suggest-item" data-name="' + matches[j].name + '">' + matches[j].name + '</div>';
-  dropdown.innerHTML = html; dropdown.classList.add("show");
+  for (var j = 0; j < matches.length; j++) {
+    var h = matches[j];
+    html += '<div class="suggest-item" data-name="' + h.name + '">' + h.name + '</div>';
+  }
+  dropdown.innerHTML = html;
+  dropdown.classList.add("show");
   var items = dropdown.querySelectorAll(".suggest-item");
   for (var k = 0; k < items.length; k++) {
     items[k].addEventListener("click", function() {
@@ -166,20 +211,208 @@ function updateSuggest(keyword) {
     });
   }
 }
-document.getElementById("export-btn").addEventListener("click", function() { document.getElementById("export-modal").classList.add("show"); });
-document.getElementById("export-cancel").addEventListener("click", function() { document.getElementById("export-modal").classList.remove("show"); });
+
+// 导出功能
+document.getElementById("export-btn").addEventListener("click", function() {
+  document.getElementById("export-modal").classList.add("show");
+});
+
+document.getElementById("export-cancel").addEventListener("click", function() {
+  document.getElementById("export-modal").classList.remove("show");
+});
+
 document.getElementById("export-confirm").addEventListener("click", function() {
-  if (!currentHotel) { alert("请先查询酒店"); return; }
-  if (typeof docx === "undefined") { alert("Word库未加载"); return; }
+  if (!currentHotel) {
+    alert("请先查询酒店");
+    return;
+  }
+  if (typeof docx === "undefined") {
+    alert("Word库未加载");
+    return;
+  }
+  
+  // 获取用户输入
+  var meetingName = document.getElementById("doc-meeting-name").value.trim() || "ICEPG 2024";
+  var meetingDate = document.getElementById("doc-meeting-date").value.trim() || "2024年9月27-29日";
   var priceQueen = document.getElementById("doc-price-queen").value.trim() || "550";
   var priceTwin = document.getElementById("doc-price-twin").value.trim() || "550";
-  var doc = new docx.Document({ sections: [{ children: [
-    new docx.Paragraph({ children: [new docx.TextRun({ text: currentHotel.name, bold: true })] }),
-    new docx.Paragraph({ children: [new docx.TextRun({ text: "大床房: " + priceQueen + "元" })] }),
-    new docx.Paragraph({ children: [new docx.TextRun({ text: "双床房: " + priceTwin + "元" })] }),
-  ]}] });
+  var contactName = document.getElementById("doc-contact-name").value.trim() || "张经理";
+  var contactPhone = document.getElementById("doc-contact-phone").value.trim() || "13700000000";
+  var deadline = document.getElementById("doc-deadline").value.trim() || "9月23日前";
+  
+  var hotel = currentHotel;
+  var children = [];
+  
+  // ===== 英文部分 =====
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Venue/会议地点", bold: true, size: 28 })],
+    spacing: { after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: meetingName + " will be held in " + hotel.city + ", China during " + meetingDate + ". For further information of the hotel, please find below.", size: 22 })],
+    spacing: { after: 400 }
+  }));
+  
+  // Ⅰ. Information
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅰ. Information：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: hotel.name, size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Tel：" + (hotel.phone || ""), size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Address: " + (hotel.address || ""), size: 22 })],
+    spacing: { after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: ">> Standard single room: RMB " + priceQueen + "/ night (about USD " + Math.round(priceQueen/7.1) + "/ night). (One bed, Internet and one breakfast included)", size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: ">> Standard double room: RMB " + priceTwin + "/ night (about USD " + Math.round(priceTwin/7.1) + "/ night). (Two beds, Internet and two breakfast included)", size: 22 })],
+    spacing: { after: 400 }
+  }));
+  
+  // Ⅱ. Room Booking
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅱ. Room Booking：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "You can make a reservation by calling " + contactPhone + " before " + deadline + ", please tell that you are a guest of \"" + meetingName + "\", and then can enjoy the agreed price.", size: 22 })],
+    spacing: { after: 400 }
+  }));
+  
+  // Ⅲ. Direction
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅲ. Direction：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  if (hotel.transport) {
+    for (var i = 0; i < hotel.transport.length; i++) {
+      var t = hotel.transport[i];
+      children.push(new docx.Paragraph({ 
+        children: [new docx.TextRun({ text: "* " + t.name + " : " + t.distance + " ; " + t.drive, size: 22 })],
+        spacing: { after: 100 }
+      }));
+    }
+  }
+  
+  children.push(new docx.Paragraph({ spacing: { after: 400 } }));
+  
+  // Ⅳ. Tips
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅳ. Tips：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "For non-Chinese Attendees, \"Bring me to the hotel\" card is available. You can show it to the taxi drivers and they will take you to the hotel.", size: 22 })],
+    spacing: { after: 600 }
+  }));
+  
+  // 分隔线
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "————————————————————————————", size: 22, color: "999999" })],
+    spacing: { after: 400 }
+  }));
+  
+  // ===== 中文部分 =====
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: meetingName + " 将于" + meetingDate + "在" + hotel.name + "举行。具体酒店信息和预定方式如下：", size: 22 })],
+    spacing: { after: 400 }
+  }));
+  
+  // Ⅰ. 酒店信息
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅰ. 酒店信息：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: hotel.name, size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "酒店电话：" + (hotel.phone || ""), size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "酒店地址：" + (hotel.address || ""), size: 22 })],
+    spacing: { after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: ">> 高级大床房：" + priceQueen + "元  含1张床/无线网络/ 1份早餐", size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: ">> 高级双床房：" + priceTwin + "元  含2张床/无线网络/ 2份早餐", size: 22 })],
+    spacing: { after: 400 }
+  }));
+  
+  // Ⅱ. 房间预定方式
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅱ. 房间预定方式：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "1. 可编辑短信\"" + meetingName + " +姓名+入住日期+退房日期+房型+入住人数\"，发送至" + contactName + " " + contactPhone + "。", size: 22 })],
+    spacing: { after: 100 }
+  }));
+  
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "2. 请勿重复预定。请尽快在" + deadline + "前完成预定（逾期无法保证房间安排，需视酒店房态而定），如有变动或取消预定需提前一周告知酒店经理。酒店费用将由酒店直接收取并开具发票。", size: 22 })],
+    spacing: { after: 400 }
+  }));
+  
+  // Ⅲ. 交通指南
+  children.push(new docx.Paragraph({ 
+    children: [new docx.TextRun({ text: "Ⅲ. 交通指南：", bold: true, size: 24 })],
+    spacing: { before: 200, after: 200 }
+  }));
+  
+  if (hotel.transport) {
+    for (var j = 0; j < hotel.transport.length; j++) {
+      var t2 = hotel.transport[j];
+      children.push(new docx.Paragraph({ 
+        children: [new docx.TextRun({ text: "*" + t2.name + ": " + t2.distance + " ; " + t2.drive, size: 22 })],
+        spacing: { after: 100 }
+      }));
+    }
+  }
+  
+  var doc = new docx.Document({ 
+    sections: [{ 
+      properties: {
+        page: {
+          margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 }
+        }
+      },
+      children: children 
+    }] 
+  });
+  
   docx.Packer.toBlob(doc).then(function(blob) {
-    saveAs(blob, "酒店推荐.docx");
+    saveAs(blob, hotel.name + "-酒店推荐.docx");
     document.getElementById("export-modal").classList.remove("show");
     alert("文档已生成！");
   });
