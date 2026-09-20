@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>综合查询系统</title>
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
-<script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
-<script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
 <style>
 :root{--bg-deep:#0B1120;--bg-card:#131B2E;--bg-card-light:#1A2440;--accent:#D4A853;--accent-soft:rgba(212,168,83,.12);--text-primary:#F1F5F9;--text-secondary:#94A3B8;--text-muted:#64748B;--border:rgba(212,168,83,.2);--error:#F87171;--radius:16px}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -391,6 +391,8 @@ document.getElementById("export-confirm").addEventListener("click",generateWordD
 
 function generateWordDoc(){
   if(!currentHotel){alert("请先查询酒店");return}
+  if(typeof docx==="undefined"){alert("Word生成库(docx)未加载成功，请刷新页面重试");return}
+  if(typeof saveAs==="undefined"){alert("文件保存库(file-saver)未加载成功，请刷新页面重试");return}
   var meetingName=document.getElementById("doc-meeting-name").value.trim()||"学术会议";
   var meetingDate=document.getElementById("doc-meeting-date").value.trim()||"待定";
   var priceQueen=document.getElementById("doc-price-queen").value.trim()||"550";
@@ -410,46 +412,50 @@ function generateWordDoc(){
       }
     });
   }
-  var doc=new docx.Document();
-  doc.addSection({properties:{},children:[
-    new docx.Paragraph({children:[new docx.TextRun({text:"Venue/会议地点",bold:true,size:28})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:meetingName+" will be held in "+hotel.city+", China during "+meetingDate+". For further information of the hotel, please find below.",size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅰ. Information：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:hotel.name,bold:true,size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Tel："+(hotel.phone||""),size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Address: "+hotel.address,size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:">> Standard single room: RMB "+priceQueen+"/ night (about USD "+usdQueen+"/ night). (One bed, Internet and one breakfast included)",size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:">> Standard double room: RMB "+priceTwin+"/ night (about USD "+usdTwin+"/ night). (Two beds, Internet and two breakfast included)",size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅱ. Room Booking：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:'You can make a reservation by calling the '+contactPhone+' before '+deadline+', please tell that you are a guest of "'+meetingName+'", and then can enjoy the agreed price.',size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅲ. Direction：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:transportEN,size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅳ. Tips：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:'For non-Chinese Attendees, "Bring me to the hotel" card is available. You can show it to the taxi drivers and they will take you to the hotel.',size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:meetingName+" 将于"+meetingDate+"在"+hotel.name+"举行。具体酒店信息和预定方式如下：",size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅰ. 酒店信息：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:hotel.name,bold:true,size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"酒店电话："+(hotel.phone||""),size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"酒店地址："+hotel.address,size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:">> 高级大床房："+priceQueen+"元  含1张床/无线网络/1份早餐",size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:">> 高级双床房："+priceTwin+"元  含2张床/无线网络/2份早餐",size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅱ. 房间预定方式：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:'1. 可编辑短信"'+meetingName+' +姓名+入住日期+退房日期+房型+入住人数"，发送至'+contactName+" "+contactPhone+"。",size:24})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"2. 请在"+deadline+"完成预定（逾期无法保证房间安排），如有变动或取消预定需提前一周告知酒店经理。酒店费用将由酒店直接收取并开具发票。",size:24})]}),
-    new docx.Paragraph({children:[]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:"Ⅲ. 交通指南：",bold:true,size:26})]}),
-    new docx.Paragraph({children:[new docx.TextRun({text:transportCN,size:24})]}),
-  ]});
+  var doc=new docx.Document({
+    sections:[{
+      properties:{},
+      children:[
+        new docx.Paragraph({children:[new docx.TextRun({text:"Venue/会议地点",bold:true,size:36})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:meetingName+" will be held in "+hotel.city+", China during "+meetingDate+". For further information of the hotel, please find below.",size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅰ. Information：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:hotel.name,bold:true,size:28})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Tel："+(hotel.phone||""),size:24})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Address: "+hotel.address,size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:">> Standard single room: RMB "+priceQueen+"/ night (about USD "+usdQueen+"/ night). (One bed, Internet and one breakfast included)",size:24})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:">> Standard double room: RMB "+priceTwin+"/ night (about USD "+usdTwin+"/ night). (Two beds, Internet and two breakfast included)",size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅱ. Room Booking：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:'You can make a reservation by calling the '+contactPhone+' before '+deadline+', please tell that you are a guest of "'+meetingName+'", and then can enjoy the agreed price.',size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅲ. Direction：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:transportEN,size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅳ. Tips：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:'For non-Chinese Attendees, "Bring me to the hotel" card is available. You can show it to the taxi drivers and they will take you to the hotel.',size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:meetingName+" 将于"+meetingDate+"在"+hotel.name+"举行。具体酒店信息和预定方式如下：",size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅰ. 酒店信息：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:hotel.name,bold:true,size:28})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"酒店电话："+(hotel.phone||""),size:24})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"酒店地址："+hotel.address,size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:">> 高级大床房："+priceQueen+"元  含1张床/无线网络/1份早餐",size:24})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:">> 高级双床房："+priceTwin+"元  含2张床/无线网络/2份早餐",size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅱ. 房间预定方式：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:'1. 可编辑短信"'+meetingName+' +姓名+入住日期+退房日期+房型+入住人数"，发送至'+contactName+" "+contactPhone+"。",size:24})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"2. 请在"+deadline+"完成预定（逾期无法保证房间安排），如有变动或取消预定需提前一周告知酒店经理。酒店费用将由酒店直接收取并开具发票。",size:24})]}),
+        new docx.Paragraph({children:[]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:"Ⅲ. 交通指南：",bold:true,size:32})]}),
+        new docx.Paragraph({children:[new docx.TextRun({text:transportCN,size:24})]}),
+      ]
+    }]
+  });
   docx.Packer.toBlob(doc).then(function(blob){
     saveAs(blob,"酒店推荐-"+hotel.name+".docx");
     document.getElementById("export-modal").classList.remove("show");
