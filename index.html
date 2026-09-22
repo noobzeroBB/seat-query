@@ -59,7 +59,6 @@ button { width: 100%; height: 48px; background: #D4A853; border: none; border-ra
     <div class="tab-item active" data-tab="seat-tab">座位查询</div>
     <div class="tab-item" data-tab="hotel-tab">酒店查询</div>
   </div>
-
   <div class="tab-pane active" id="seat-tab">
     <div class="form-card">
       <label>参会人姓名</label>
@@ -67,7 +66,6 @@ button { width: 100%; height: 48px; background: #D4A853; border: none; border-ra
       <button id="search-btn">查 询 座 位</button>
     </div>
   </div>
-
   <div class="tab-pane" id="hotel-tab">
     <div class="form-card">
       <label>酒店名称</label>
@@ -82,7 +80,6 @@ button { width: 100%; height: 48px; background: #D4A853; border: none; border-ra
     <button class="export-btn" id="export-btn" style="display:none">导出酒店推荐Word文档</button>
   </div>
 </div>
-
 <div class="modal-overlay" id="export-modal">
   <div class="modal-content">
     <h3 style="margin-top:0">导出酒店推荐文档</h3>
@@ -91,88 +88,78 @@ button { width: 100%; height: 48px; background: #D4A853; border: none; border-ra
     <label>会议时间</label>
     <input type="text" id="doc-meeting-date" placeholder="例如：2024年9月27-29日">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div>
-        <label>大床房价格</label>
-        <input type="number" id="doc-price-queen" placeholder="550">
-      </div>
-      <div>
-        <label>双床房价格</label>
-        <input type="number" id="doc-price-twin" placeholder="550">
-      </div>
+      <div><label>大床房价格</label><input type="number" id="doc-price-queen" placeholder="550"></div>
+      <div><label>双床房价格</label><input type="number" id="doc-price-twin" placeholder="550"></div>
     </div>
-    <label>预订联系人</label>
-    <input type="text" id="doc-contact-name" placeholder="张经理">
-    <label>预订电话</label>
-    <input type="tel" id="doc-contact-phone" placeholder="13700000000">
-    <label>预订截止日期</label>
-    <input type="text" id="doc-deadline" placeholder="9月23日前">
+    <label>预订联系人</label><input type="text" id="doc-contact-name" placeholder="张经理">
+    <label>预订电话</label><input type="tel" id="doc-contact-phone" placeholder="13700000000">
+    <label>预订截止日期</label><input type="text" id="doc-deadline" placeholder="9月23日前">
     <div style="display:flex;gap:12px;margin-top:16px">
       <button id="export-cancel" style="background:#1A2440;color:#94A3B8">取消</button>
       <button id="export-confirm">生成文档</button>
     </div>
   </div>
 </div>
-
 <script src="seats.js"></script>
 <script src="hotels.js"></script>
 <script>
 var currentHotel = null;
 var lastSearchResults = null;
 var lastSearchKeyword = '';
-
 var tabs = document.querySelectorAll(".tab-item");
 for (var i = 0; i < tabs.length; i++) {
   tabs[i].addEventListener("click", function() {
     var target = this.getAttribute("data-tab");
-    for (var j = 0; j < tabs.length; j++) {
-      tabs[j].classList.remove("active");
-    }
+    for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove("active"); }
     this.classList.add("active");
     var panes = document.querySelectorAll(".tab-pane");
-    for (var k = 0; k < panes.length; k++) {
-      panes[k].classList.remove("active");
-    }
+    for (var k = 0; k < panes.length; k++) { panes[k].classList.remove("active"); }
     document.getElementById(target).classList.add("active");
   });
 }
-
 document.getElementById("hotel-search-btn").addEventListener("click", function() {
   var keyword = document.getElementById("hotel-input").value.trim();
   if (!keyword) return;
   searchHotelAndShow(keyword);
 });
-
-document.getElementById("hotel-input").addEventListener("input", function() {
-  updateSuggest(this.value);
-});
-
+document.getElementById("hotel-input").addEventListener("input", function() { updateSuggest(this.value); });
+var CITY_NAMES = ['广州','北京','上海','深圳','杭州','成都','重庆','武汉','西安','南京','天津','苏州','长沙','青岛','大连','厦门','宁波','无锡','合肥','福州','济南','郑州','沈阳','哈尔滨','长春','石家庄','太原','南昌','贵阳','昆明','兰州','西宁','银川','乌鲁木齐','呼和浩特','拉萨','南宁','海口','三亚','东莞','佛山','珠海','中山','惠州','江门','肇庆','清远','汕头','湛江','梅州','韶关','河源','阳江','茂名','潮州','揭阳','云浮'];
+function parseKeywords(input) {
+  var keywords = [];
+  var parts = input.trim().split(/\s+/);
+  for (var i = 0; i < parts.length; i++) { if (parts[i]) keywords.push(parts[i].toLowerCase()); }
+  if (keywords.length === 1 && input.indexOf(' ') === -1) {
+    for (var j = 0; j < CITY_NAMES.length; j++) {
+      var city = CITY_NAMES[j];
+      if (input.indexOf(city) === 0 && input.length > city.length) {
+        keywords = [city.toLowerCase(), input.substring(city.length).toLowerCase()];
+        break;
+      }
+    }
+  }
+  return keywords;
+}
 function searchHotelAndShow(keyword) {
-  var q = keyword.toLowerCase();
+  var keywords = parseKeywords(keyword);
   var matches = [];
   if (typeof HOTEL_DATA !== "undefined") {
     for (var i = 0; i < HOTEL_DATA.length; i++) {
       var h = HOTEL_DATA[i];
-      var nameMatch = h.name.toLowerCase().indexOf(q) !== -1;
-      var districtMatch = h.district && h.district.toLowerCase().indexOf(q) !== -1;
-      var cityMatch = h.city && h.city.toLowerCase().indexOf(q) !== -1;
-      if (nameMatch || districtMatch || cityMatch) {
-        matches.push(h);
+      var searchText = (h.name + ' ' + (h.district || '') + ' ' + (h.city || '')).toLowerCase();
+      var allMatch = true;
+      for (var k = 0; k < keywords.length; k++) {
+        if (searchText.indexOf(keywords[k]) === -1) { allMatch = false; break; }
       }
+      if (allMatch) { matches.push(h); }
     }
   }
-  if (matches.length > 0) {
-    showHotelList(matches, keyword);
-  } else {
-    alert("未找到匹配的酒店: " + keyword);
-  }
+  if (matches.length > 0) { showHotelList(matches, keyword); } else { alert("未找到匹配的酒店: " + keyword); }
 }
-
 function showHotelList(hotels, keyword) {
   lastSearchResults = hotels;
   lastSearchKeyword = keyword;
   document.getElementById("hotel-detail").innerHTML = "";
   document.getElementById("export-btn").style.display = "none";
-  
   var html = '<div class="search-result-count">找到 ' + hotels.length + ' 家匹配" ' + keyword + ' "的酒店，点击查看详情：</div>';
   for (var i = 0; i < hotels.length; i++) {
     var h = hotels[i];
@@ -185,7 +172,6 @@ function showHotelList(hotels, keyword) {
     html += '</div></div>';
   }
   document.getElementById("hotel-results").innerHTML = html;
-  
   var items = document.querySelectorAll(".hotel-result-item");
   for (var j = 0; j < items.length; j++) {
     items[j].addEventListener("click", function() {
@@ -194,7 +180,6 @@ function showHotelList(hotels, keyword) {
     });
   }
 }
-
 function backToSearch() {
   if (lastSearchResults) {
     document.getElementById("hotel-detail").innerHTML = "";
@@ -208,7 +193,6 @@ function selectHotel(hotel) {
   showHotelDetail(hotel);
   document.getElementById("export-btn").style.display = "block";
 }
-
 function showHotelDetail(hotel) {
   var html = '<button class="back-btn" onclick="backToSearch()">← 返回搜索结果</button>';
   html += '<div class="hotel-card">';
@@ -220,24 +204,14 @@ function showHotelDetail(hotel) {
   if (hotel.reviews) html += '<span class="hotel-reviews">' + hotel.reviews + '</span>';
   if (hotel.district) html += '<span class="hotel-district">' + hotel.district + '</span>';
   html += '</div>';
-  if (hotel.address) {
-    html += '<div class="hotel-address">📍 ' + hotel.address + '</div>';
-  }
-  if (hotel.phone) {
-    html += '<div class="hotel-phone">📞 ' + hotel.phone + '</div>';
-  }
+  if (hotel.address) { html += '<div class="hotel-address">📍 ' + hotel.address + '</div>'; }
+  if (hotel.phone) { html += '<div class="hotel-phone">📞 ' + hotel.phone + '</div>'; }
   html += '</div>';
   html += '<div class="hotel-photos">';
-  if (hotel.photoQueen) {
-    html += '<div class="photo-item"><img src="' + hotel.photoQueen + '"><div class="photo-label">大床房</div></div>';
-  } else {
-    html += '<div class="photo-item photo-placeholder"><div class="placeholder-icon">🛏️</div><div class="photo-label">大床房（照片待补充）</div></div>';
-  }
-  if (hotel.photoTwin) {
-    html += '<div class="photo-item"><img src="' + hotel.photoTwin + '"><div class="photo-label">双床房</div></div>';
-  } else {
-    html += '<div class="photo-item photo-placeholder"><div class="placeholder-icon">🛏️🛏️</div><div class="photo-label">双床房（照片待补充）</div></div>';
-  }
+  if (hotel.photoQueen) { html += '<div class="photo-item"><img src="' + hotel.photoQueen + '"><div class="photo-label">大床房</div></div>'; }
+  else { html += '<div class="photo-item photo-placeholder"><div class="placeholder-icon">🛏️</div><div class="photo-label">大床房（照片待补充）</div></div>'; }
+  if (hotel.photoTwin) { html += '<div class="photo-item"><img src="' + hotel.photoTwin + '"><div class="photo-label">双床房</div></div>'; }
+  else { html += '<div class="photo-item photo-placeholder"><div class="placeholder-icon">🛏️🛏️</div><div class="photo-label">双床房（照片待补充）</div></div>'; }
   html += '</div>';
   if (hotel.transport && hotel.transport.length > 0) {
     html += '<div class="section-title">周边交通枢纽</div><div class="transport-list">';
@@ -246,31 +220,26 @@ function showHotelDetail(hotel) {
       html += '<div class="transport-item"><span>' + t.name + '</span><span>' + t.distance + ' / ' + (t.drive || '') + '</span></div>';
     }
     html += '</div>';
-  } else {
-    html += '<div class="section-title">周边交通枢纽</div><div class="transport-empty">交通信息待补充</div>';
-  }
+  } else { html += '<div class="section-title">周边交通枢纽</div><div class="transport-empty">交通信息待补充</div>'; }
   html += '</div>';
   document.getElementById("hotel-detail").innerHTML = html;
 }
-
 function updateSuggest(keyword) {
   var dropdown = document.getElementById("hotel-suggest");
-  var q = keyword.trim().toLowerCase();
-  if (!q || typeof HOTEL_DATA === "undefined") {
-    dropdown.classList.remove("show");
-    return;
-  }
+  var input = keyword.trim();
+  if (!input || typeof HOTEL_DATA === "undefined") { dropdown.classList.remove("show"); return; }
+  var keywords = parseKeywords(input);
   var matches = [];
   for (var i = 0; i < HOTEL_DATA.length; i++) {
-    if (HOTEL_DATA[i].name.toLowerCase().indexOf(q) !== -1) {
-      matches.push(HOTEL_DATA[i]);
-      if (matches.length >= 8) break;
+    var h = HOTEL_DATA[i];
+    var searchText = (h.name + ' ' + (h.district || '') + ' ' + (h.city || '')).toLowerCase();
+    var allMatch = true;
+    for (var k = 0; k < keywords.length; k++) {
+      if (searchText.indexOf(keywords[k]) === -1) { allMatch = false; break; }
     }
+    if (allMatch) { matches.push(h); if (matches.length >= 8) break; }
   }
-  if (matches.length === 0) {
-    dropdown.classList.remove("show");
-    return;
-  }
+  if (matches.length === 0) { dropdown.classList.remove("show"); return; }
   var html = "";
   for (var j = 0; j < matches.length; j++) {
     var h = matches[j];
@@ -287,25 +256,11 @@ function updateSuggest(keyword) {
     });
   }
 }
-
-document.getElementById("export-btn").addEventListener("click", function() {
-  document.getElementById("export-modal").classList.add("show");
-});
-
-document.getElementById("export-cancel").addEventListener("click", function() {
-  document.getElementById("export-modal").classList.remove("show");
-});
-
+document.getElementById("export-btn").addEventListener("click", function() { document.getElementById("export-modal").classList.add("show"); });
+document.getElementById("export-cancel").addEventListener("click", function() { document.getElementById("export-modal").classList.remove("show"); });
 document.getElementById("export-confirm").addEventListener("click", async function() {
-  if (!currentHotel) {
-    alert("请先查询酒店");
-    return;
-  }
-  if (typeof docx === "undefined") {
-    alert("Word库未加载");
-    return;
-  }
-  
+  if (!currentHotel) { alert("请先查询酒店"); return; }
+  if (typeof docx === "undefined") { alert("Word库未加载"); return; }
   var meetingName = document.getElementById("doc-meeting-name").value.trim() || "ICEPG 2024";
   var meetingDate = document.getElementById("doc-meeting-date").value.trim() || "2024年9月27-29日";
   var priceQueen = document.getElementById("doc-price-queen").value.trim() || "550";
@@ -313,228 +268,78 @@ document.getElementById("export-confirm").addEventListener("click", async functi
   var contactName = document.getElementById("doc-contact-name").value.trim() || "张经理";
   var contactPhone = document.getElementById("doc-contact-phone").value.trim() || "13725427055";
   var deadline = document.getElementById("doc-deadline").value.trim() || "9月23日前";
-  
   var hotel = currentHotel;
   var children = [];
-  
   async function loadImage(url) {
     try {
       var response = await fetch(url);
       var blob = await response.blob();
       return new Promise(function(resolve) {
         var reader = new FileReader();
-        reader.onloadend = function() {
-          resolve(reader.result.split(',')[1]);
-        };
+        reader.onloadend = function() { resolve(reader.result.split(',')[1]); };
         reader.readAsDataURL(blob);
       });
-    } catch(e) {
-      return null;
-    }
+    } catch(e) { return null; }
   }
-  
   var imgQueen = hotel.photoQueen ? await loadImage(hotel.photoQueen) : null;
   var imgTwin = hotel.photoTwin ? await loadImage(hotel.photoTwin) : null;
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Venue/会议地点", bold: true, size: 28 })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: meetingName + "   will be held in " + hotel.city + ", China during " + meetingDate + ". For further information of the hotel, please find below.", size: 21 })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Venue/会议地点", bold: true, size: 28 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: meetingName + "   will be held in " + hotel.city + ", China during " + meetingDate + ". For further information of the hotel, please find below.", size: 21 })] }));
   children.push(new docx.Paragraph({ children: [] }));
   children.push(new docx.Paragraph({ children: [] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅰ. Information：", bold: true })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [
-      new docx.TextRun({ text: hotel.name, size: 21 }),
-      new docx.TextRun({ text: " \nHotel Website：click", size: 21 })
-    ],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Tel：+86-" + (hotel.phone || ""), size: 21 })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Address: " + (hotel.address || "") })],
-  }));
-  
-  if (imgQueen) {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.ImageRun({ data: imgQueen, transformation: { width: 350, height: 263 } })],
-    }));
-  } else {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.TextRun({ text: "（大床房照片待补充）", italics: true, color: "888888" })],
-    }));
-  }
-  
-  if (imgTwin) {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.ImageRun({ data: imgTwin, transformation: { width: 350, height: 263 } })],
-    }));
-  } else {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.TextRun({ text: "（双床房照片待补充）", italics: true, color: "888888" })],
-    }));
-  }
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: ">> Standard single room: RMB " + priceQueen + "/ night (about USD " + (priceQueen/7.1).toFixed(1) + "/ night). (One bed, Internet and one breakfast included)" })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: ">> Standard double room: RMB " + priceTwin + "/ night (about USD " + (priceTwin/7.1).toFixed(1) + "/ night). (Two beds, Internet and two breakfast included)" })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅰ. Information：", bold: true })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: hotel.name, size: 21 }), new docx.TextRun({ text: " \nHotel Website：click", size: 21 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Tel：+86-" + (hotel.phone || ""), size: 21 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Address: " + (hotel.address || "") })] }));
+  if (imgQueen) { children.push(new docx.Paragraph({ children: [new docx.ImageRun({ data: imgQueen, transformation: { width: 350, height: 263 } })] })); }
+  else { children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "（大床房照片待补充）", italics: true, color: "888888" })] })); }
+  if (imgTwin) { children.push(new docx.Paragraph({ children: [new docx.ImageRun({ data: imgTwin, transformation: { width: 350, height: 263 } })] })); }
+  else { children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "（双床房照片待补充）", italics: true, color: "888888" })] })); }
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: ">> Standard single room: RMB " + priceQueen + "/ night (about USD " + (priceQueen/7.1).toFixed(1) + "/ night). (One bed, Internet and one breakfast included)" })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: ">> Standard double room: RMB " + priceTwin + "/ night (about USD " + (priceTwin/7.1).toFixed(1) + "/ night). (Two beds, Internet and two breakfast included)" })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅱ. Room Booking：", bold: true, size: 24 })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "You can make a reservation by calling the " + contactPhone + " before " + deadline + ", please tell that you are a guest of \" " + meetingName + " \", and then can enjoy the agreed price." })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅱ. Room Booking：", bold: true, size: 24 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "You can make a reservation by calling the " + contactPhone + " before " + deadline + ", please tell that you are a guest of \" " + meetingName + " \", and then can enjoy the agreed price." })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅲ. Direction：", bold: true, size: 24 })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅲ. Direction：", bold: true, size: 24 })] }));
   if (hotel.transport) {
     for (var i = 0; i < hotel.transport.length; i++) {
       var t = hotel.transport[i];
-      children.push(new docx.Paragraph({ 
-        children: [
-          new docx.TextRun({ text: "* "}),
-          new docx.TextRun({ text: t.name, bold: true }),
-          new docx.TextRun({ text: " : " + t.distance + " ; " + t.drive })
-        ],
-      }));
+      children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "* "}), new docx.TextRun({ text: t.name, bold: true }), new docx.TextRun({ text: " : " + t.distance + " ; " + t.drive })] }));
     }
   }
-  
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅳ. Tips：", bold: true, size: 24 })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "For non-Chinese Attendees, \"Bring me to the hotel\" card is available. You can show it to the taxi drivers and they will take you to the hotel." })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "(可将修改后的方框截图，作为图片上传官网，方便参会者下载)", size: 20 })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅳ. Tips：", bold: true, size: 24 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "For non-Chinese Attendees, \"Bring me to the hotel\" card is available. You can show it to the taxi drivers and they will take you to the hotel." })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "(可将修改后的方框截图，作为图片上传官网，方便参会者下载)", size: 20 })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: meetingName + "  将于" + meetingDate + "在" + hotel.name + "举行。具体酒店信息和预定方式如下： ", size: 21 })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: meetingName + "  将于" + meetingDate + "在" + hotel.name + "举行。具体酒店信息和预定方式如下： ", size: 21 })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅰ. 酒店信息：", bold: true })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [
-      new docx.TextRun({ text: hotel.name, bold: true, size: 21 }),
-      new docx.TextRun({ text: "\n酒店官网：查看", size: 21 })
-    ],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "酒店电话：+86-" + (hotel.phone || ""), size: 21 })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "酒店地址：" + (hotel.address || ""), size: 21 })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅰ. 酒店信息：", bold: true })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: hotel.name, bold: true, size: 21 }), new docx.TextRun({ text: "\n酒店官网：查看", size: 21 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "酒店电话：+86-" + (hotel.phone || ""), size: 21 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "酒店地址：" + (hotel.address || ""), size: 21 })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  if (imgQueen) {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.ImageRun({ data: imgQueen, transformation: { width: 350, height: 263 } })],
-    }));
-  } else {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.TextRun({ text: "（大床房照片待补充）", italics: true, color: "888888" })],
-    }));
-  }
-  
-  if (imgTwin) {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.ImageRun({ data: imgTwin, transformation: { width: 350, height: 263 } })],
-    }));
-  } else {
-    children.push(new docx.Paragraph({ 
-      children: [new docx.TextRun({ text: "（双床房照片待补充）", italics: true, color: "888888" })],
-    }));
-  }
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: ">> 高级大床房：" + priceQueen + "元  含1张床/无线网络/ 1份早餐" })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: ">> 高级双床房：" + priceTwin + "元  含2张床/无线网络/ 2份早餐" })],
-  }));
-  
+  if (imgQueen) { children.push(new docx.Paragraph({ children: [new docx.ImageRun({ data: imgQueen, transformation: { width: 350, height: 263 } })] })); }
+  else { children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "（大床房照片待补充）", italics: true, color: "888888" })] })); }
+  if (imgTwin) { children.push(new docx.Paragraph({ children: [new docx.ImageRun({ data: imgTwin, transformation: { width: 350, height: 263 } })] })); }
+  else { children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "（双床房照片待补充）", italics: true, color: "888888" })] })); }
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: ">> 高级大床房：" + priceQueen + "元  含1张床/无线网络/ 1份早餐" })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: ">> 高级双床房：" + priceTwin + "元  含2张床/无线网络/ 2份早餐" })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅱ. 房间预定方式：", bold: true, size: 24 })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "1. 可编辑短信“ " + meetingName + "  +姓名+入住日期+退房日期+房型+入住人数”，发送至" + contactName + " " + contactPhone + " 。" })],
-  }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "2. 请勿重复预定。请尽快在" + deadline + "前完成预定（逾期无法保证房间安排，需视酒店房态而定），如有变动或取消预定需提前一周告知酒店经理。酒店费用将由酒店直接收取并开具发票。" })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅱ. 房间预定方式：", bold: true, size: 24 })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "1. 可编辑短信“ " + meetingName + "  +姓名+入住日期+退房日期+房型+入住人数”，发送至" + contactName + " " + contactPhone + " 。" })] }));
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "2. 请勿重复预定。请尽快在" + deadline + "前完成预定（逾期无法保证房间安排，需视酒店房态而定），如有变动或取消预定需提前一周告知酒店经理。酒店费用将由酒店直接收取并开具发票。" })] }));
   children.push(new docx.Paragraph({ children: [] }));
-  
-  children.push(new docx.Paragraph({ 
-    children: [new docx.TextRun({ text: "Ⅲ. 交通指南：", bold: true, size: 24 })],
-  }));
-  
+  children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "Ⅲ. 交通指南：", bold: true, size: 24 })] }));
   if (hotel.transport) {
     for (var j = 0; j < hotel.transport.length; j++) {
       var t2 = hotel.transport[j];
-      children.push(new docx.Paragraph({ 
-        children: [new docx.TextRun({ text: "*" + t2.name + ": " + t2.distance + " ; " + t2.drive })],
-      }));
+      children.push(new docx.Paragraph({ children: [new docx.TextRun({ text: "*" + t2.name + ": " + t2.distance + " ; " + t2.drive })] }));
     }
   }
-  
-  var doc = new docx.Document({ 
-    sections: [{ 
-      properties: {
-        page: {
-          margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 }
-        }
-      },
-      children: children 
-    }] 
-  });
-  
+  var doc = new docx.Document({ sections: [{ properties: { page: { margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } }, children: children }] });
   docx.Packer.toBlob(doc).then(function(blob) {
     saveAs(blob, hotel.name + "-酒店推荐.docx");
     document.getElementById("export-modal").classList.remove("show");
