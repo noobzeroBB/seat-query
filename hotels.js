@@ -3,15 +3,21 @@ var HOTEL_DATA = [
     "name": "广州塔艺术博物院亚朵酒店",
     "city": "广州",
     "district": "海珠",
-    "address": "",
+    "address": "海珠区艺苑路5号",
     "phone": "",
     "star": "4钻",
     "rating": "4.9",
     "reviews": "超棒1,507条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2312000qxwze2544CC_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "赤岗塔地铁站",
+        "distance": "690米",
+        "drive": "步行约10分钟"
+      }
+    ]
   },
   {
     "name": "春华·恬觅公馆(广州大学城店)",
@@ -56,43 +62,71 @@ var HOTEL_DATA = [
     "name": "广州珠江新城太古汇宜致美居",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区天河路236号一层",
+    "phone": "020-38888600",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒14,314条点评",
+    "reviews": "超棒14,318条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2912000f5929vu58ED_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "体育中心地铁站",
+        "distance": "490米",
+        "drive": "步行约7分钟"
+      },
+      {
+        "name": "广州东站汽车客运站",
+        "distance": "4.7千米",
+        "drive": "驾车约14分钟"
+      }
+    ]
   },
   {
     "name": "广州总统大酒店(天河体育中心太古汇店)",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区天河路586号",
+    "phone": "020-85512988",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒8,192条点评",
+    "reviews": "超棒8,195条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2k12000tnnb022005A_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "石牌桥地铁站",
+        "distance": "640米",
+        "drive": "步行约9分钟"
+      },
+      {
+        "name": "广州东站汽车客运站",
+        "distance": "5.3千米",
+        "drive": "驾车约13分钟"
+      }
+    ]
   },
   {
     "name": "隐舍酒店(广州江南西昌岗地铁站店)",
     "city": "广州",
     "district": "海珠",
-    "address": "",
-    "phone": "",
+    "address": "海珠区江南大道中穗花二巷1号",
+    "phone": "020-89449715",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒8,382条点评",
+    "reviews": "超棒8,386条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4e12000s0ulcw2B533_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "昌岗地铁站",
+        "distance": "740米",
+        "drive": "步行约11分钟"
+      }
+    ]
   },
   {
     "name": "广州国际金融城临江大道亚朵见野酒店",
@@ -112,15 +146,21 @@ var HOTEL_DATA = [
     "name": "广州北京路步行街美居酒店",
     "city": "广州",
     "district": "越秀",
-    "address": "",
-    "phone": "",
+    "address": "越秀区北京路182号",
+    "phone": "020-28833666",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒14,286条点评",
+    "reviews": "超棒14,289条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1p12000bl9k0900FBE_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "公园前地铁站",
+        "distance": "710米",
+        "drive": "步行约10分钟"
+      }
+    ]
   },
   {
     "name": "全季大观广州塔琶洲会展中心酒店",
@@ -140,29 +180,51 @@ var HOTEL_DATA = [
     "name": "广州珠江新城太古汇亚朵酒店",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区天河东路65号",
+    "phone": "020-87659888",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒5,548条点评",
+    "reviews": "超棒5,549条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0g12000t48j8fv3339_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "岗顶地铁站",
+        "distance": "760米",
+        "drive": "步行约11分钟"
+      },
+      {
+        "name": "广州东站汽车客运站",
+        "distance": "5.2千米",
+        "drive": "驾车约13分钟"
+      }
+    ]
   },
   {
     "name": "广州金融城萨和酒店",
     "city": "广州",
-    "district": "",
-    "address": "",
-    "phone": "",
+    "district": "天河",
+    "address": "天河区临江大道787号天际广场B座",
+    "phone": "020-38991111",
     "star": "4钻",
     "rating": "4.8",
     "reviews": "超棒1,088条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5z12000pk3kqddAB52_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "科韵路地铁站",
+        "distance": "1.7千米",
+        "drive": "驾车约5分钟"
+      },
+      {
+        "name": "东圃汽车客运站",
+        "distance": "5千米",
+        "drive": "驾车约12分钟"
+      }
+    ]
   },
   {
     "name": "如家商旅酒店(广州国际金融城奥体中心店)",
@@ -195,16 +257,22 @@ var HOTEL_DATA = [
   {
     "name": "广州珠江新城五羊邨地铁站亚朵酒店",
     "city": "广州",
-    "district": "天河",
-    "address": "",
-    "phone": "",
+    "district": "越秀",
+    "address": "越秀区寺右新马路168号",
+    "phone": "020-37602079",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒5,101条点评",
+    "reviews": "超棒5,102条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/02039120009doq3c93EBE_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "珠江新城地铁站",
+        "distance": "1000米",
+        "drive": "驾车约3分钟"
+      }
+    ]
   },
   {
     "name": "广州太古汇科韵路宜致美居",
@@ -224,15 +292,31 @@ var HOTEL_DATA = [
     "name": "维也纳国际酒店(广州白云国际机场店)",
     "city": "广州",
     "district": "白云",
-    "address": "",
-    "phone": "",
+    "address": "花都区花东镇花都大道东615号",
+    "phone": "020-86884888",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒1,895条点评",
+    "reviews": "超棒1,896条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1x12000lv50c7i5360_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "花东汽车站",
+        "distance": "<100米",
+        "drive": "步行约1分钟"
+      },
+      {
+        "name": "白云机场北站",
+        "distance": "9.5千米",
+        "drive": "驾车约23分钟"
+      },
+      {
+        "name": "广州花东澳斯特精选酒店(白云机场店)·乐潮地中西餐厅",
+        "distance": "403米",
+        "drive": "步行约6分钟"
+      }
+    ]
   },
   {
     "name": "榆漫居酒店(广州太古汇天河体育中心旗舰店)",
@@ -336,15 +420,21 @@ var HOTEL_DATA = [
     "name": "广州琶洲会展赤沙地铁站如家商旅酒店",
     "city": "广州",
     "district": "海珠",
-    "address": "",
-    "phone": "",
+    "address": "海珠区新滘东路赤沙路1号",
+    "phone": "020-89117666",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒1,172条点评",
+    "reviews": "超棒1,174条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0204j12000scrcibe4C44_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "北山地铁站",
+        "distance": "1千米",
+        "drive": "驾车约3分钟"
+      }
+    ]
   },
   {
     "name": "广州珠江新城珠江公园亚朵酒店",
@@ -494,7 +584,7 @@ var HOTEL_DATA = [
     "phone": "",
     "star": "4钻",
     "rating": "4.8",
-    "reviews": "超棒2,840条点评",
+    "reviews": "超棒2,841条点评",
     "price": "",
     "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5d12000twyuzgdE7F5_W_1280_853_R5_Q70.jpg",
@@ -594,29 +684,61 @@ var HOTEL_DATA = [
     "name": "维也纳酒店(广州北站花果山地铁站店)",
     "city": "广州",
     "district": "花都",
-    "address": "",
+    "address": "花都区云山大道50号",
     "phone": "",
     "star": "4钻",
     "rating": "4.7",
     "reviews": "超棒1,238条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6p12000t2czxsi530B_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "花都广场地铁站",
+        "distance": "1.5千米",
+        "drive": "驾车约4分钟"
+      },
+      {
+        "name": "广州佐航花都雅瑶恒通汽车站",
+        "distance": "4千米",
+        "drive": "驾车约12分钟"
+      },
+      {
+        "name": "杨屋汽车站",
+        "distance": "4.3千米",
+        "drive": "驾车约12分钟"
+      }
+    ]
   },
   {
     "name": "枫季(广州新白云国际机场体验店)",
     "city": "广州",
     "district": "白云",
-    "address": "",
-    "phone": "",
+    "address": "白云区人和镇矮岗大路口东三巷9号",
+    "phone": "020-31920056",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒13,526条点评",
+    "reviews": "超棒13,528条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0205q12000creo7x95F13_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "人和地铁站",
+        "distance": "3.5千米",
+        "drive": "驾车约10分钟"
+      },
+      {
+        "name": "白云机场南站",
+        "distance": "4.5千米",
+        "drive": "驾车约13分钟"
+      },
+      {
+        "name": "晴空便捷(广州新白云国际机场店)",
+        "distance": "<100米",
+        "drive": "步行约1分钟"
+      }
+    ]
   },
   {
     "name": "维也纳酒店(广州白云学院金塬广场店)",
@@ -650,29 +772,41 @@ var HOTEL_DATA = [
     "name": "广州塔琶洲会展宏阳·麗悦酒店",
     "city": "广州",
     "district": "海珠",
-    "address": "",
-    "phone": "",
+    "address": "海珠区新港中路485号",
+    "phone": "020-89116288",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒12,195条点评",
+    "reviews": "超棒12,196条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0203s12000twygrox0A0C_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "客村地铁站",
+        "distance": "900米",
+        "drive": "步行约13分钟"
+      }
+    ]
   },
   {
     "name": "广州珠江新城华轩美仑美奂酒店",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区珠江新城金穗路62号5楼 (前台在5楼)",
+    "phone": "020-28306688",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒5,735条点评",
+    "reviews": "超棒5,737条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6q12000d56hcgz76FC_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "妇儿中心地铁站",
+        "distance": "440米",
+        "drive": "步行约6分钟"
+      }
+    ]
   },
   {
     "name": "美豪丽致酒店(广州白云国际机场T2T3航站楼店)",
@@ -706,15 +840,21 @@ var HOTEL_DATA = [
     "name": "宏阳·麗悦云居(广州塔琶洲会展店)",
     "city": "广州",
     "district": "海珠",
-    "address": "",
-    "phone": "",
+    "address": "海珠区新港东路84号",
+    "phone": "020-89803666",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒6,913条点评",
+    "reviews": "超棒6,915条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0206l12000lspm41r7267_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "赤岗地铁站-D2口",
+        "distance": "670米",
+        "drive": "步行约10分钟"
+      }
+    ]
   },
   {
     "name": "榆扉·云栖|CLOUDSCAPE·CORE星空府邸(广州珠江新城CBD太古汇店)",
@@ -745,15 +885,21 @@ var HOTEL_DATA = [
     "name": "丽呈铂锐酒店(广州塔地铁站中山大学店)",
     "city": "广州",
     "district": "海珠",
-    "address": "",
-    "phone": "",
+    "address": "海珠区滨江东路893号",
+    "phone": "020-34003139",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒1,386条点评",
+    "reviews": "超棒1,389条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2112000niid6fx9FFB_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "广州塔地铁站",
+        "distance": "1.4千米",
+        "drive": "驾车约4分钟"
+      }
+    ]
   },
   {
     "name": "尚品假日酒店(广州新白云国际机场T2T3航站楼店)",
@@ -787,15 +933,31 @@ var HOTEL_DATA = [
     "name": "广州华裕万福酒店(广州东站天河体育中心店)",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区瘦狗岭路303号",
+    "phone": "020-85693333",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒1,904条点评",
+    "reviews": "超棒1,906条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0r12000lgakxaxA046_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "天平架地铁站",
+        "distance": "1.4千米",
+        "drive": "驾车约4分钟"
+      },
+      {
+        "name": "广州东站汽车客运站",
+        "distance": "680米",
+        "drive": "步行约10分钟"
+      },
+      {
+        "name": "上元岗公共汽车站",
+        "distance": "4.4千米",
+        "drive": "驾车约13分钟"
+      }
+    ]
   },
   {
     "name": "鼎舍酒店(广州沙面岛永庆坊店)",
@@ -829,15 +991,21 @@ var HOTEL_DATA = [
     "name": "创时代酒店(广州天河智慧城地铁站店)",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区华观路万科广场A4栋5楼",
+    "phone": "020-38813809",
     "star": "4钻",
     "rating": "4.7",
     "reviews": "超棒4,819条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0204312000a5fdnn77B17_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "神舟路地铁站",
+        "distance": "2.8千米",
+        "drive": "驾车约8分钟"
+      }
+    ]
   },
   {
     "name": "广州番禺温德姆花园酒店",
@@ -913,15 +1081,26 @@ var HOTEL_DATA = [
     "name": "广州天河喆啡锐品酒店",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区天河路625号",
+    "phone": "020-87539188",
     "star": "4钻",
     "rating": "4.7",
-    "reviews": "超棒8,507条点评",
+    "reviews": "超棒8,508条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4212000acpi5myECCF_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "华师地铁站",
+        "distance": "720米",
+        "drive": "步行约10分钟"
+      },
+      {
+        "name": "广州东站汽车客运站",
+        "distance": "4.8千米",
+        "drive": "驾车约14分钟"
+      }
+    ]
   },
   {
     "name": "微八逸居公馆(广州永庆坊上下九店)",
@@ -1274,15 +1453,26 @@ var HOTEL_DATA = [
     "name": "CityNote希诺轻居(广州北京路步行街南越王博物馆店)",
     "city": "广州",
     "district": "越秀",
-    "address": "",
-    "phone": "",
+    "address": "越秀区中山四路246号信德商务大厦41层",
+    "phone": "020-83598388",
     "star": "4钻",
     "rating": "4.7",
     "reviews": "超棒2,240条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4l12000oxf4cjoE86C_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "公园前地铁站",
+        "distance": "580米",
+        "drive": "步行约8分钟"
+      },
+      {
+        "name": "广东省汽车客运站",
+        "distance": "4.2千米",
+        "drive": "驾车约12分钟"
+      }
+    ]
   },
   {
     "name": "广州白云国际会议中心越秀万豪酒店",
@@ -1302,29 +1492,51 @@ var HOTEL_DATA = [
     "name": "美豪丽致酒店(广州东站天河体育中心店)",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区林和西路167号",
+    "phone": "020-38119999",
     "star": "4钻",
     "rating": "4.6",
-    "reviews": "很好11,731条点评",
+    "reviews": "很好11,735条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1j12000slrwkpbF616_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "沙河地铁站",
+        "distance": "1千米",
+        "drive": "驾车约3分钟"
+      },
+      {
+        "name": "广州东站汽车客运站",
+        "distance": "610米",
+        "drive": "步行约9分钟"
+      },
+      {
+        "name": "天河客运站",
+        "distance": "7.3千米",
+        "drive": "驾车约18分钟"
+      }
+    ]
   },
   {
     "name": "广州北京路步行街中华广场格芮酒店",
     "city": "广州",
     "district": "越秀",
-    "address": "",
+    "address": "越秀区中山三路33号中华国际中心A塔",
     "phone": "",
     "star": "4钻",
     "rating": "4.6",
-    "reviews": "很好1,415条点评",
+    "reviews": "很好1,416条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4712000rjmxqw21797_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "农讲所地铁站",
+        "distance": "740米",
+        "drive": "步行约11分钟"
+      }
+    ]
   },
   {
     "name": "广州花园酒店",
@@ -1349,16 +1561,22 @@ var HOTEL_DATA = [
   {
     "name": "洲至奢选广州香岚官洲酒店",
     "city": "广州",
-    "district": "番禺",
-    "address": "",
-    "phone": "",
+    "district": "海珠",
+    "address": "海珠区国际生物岛星岛环南路1号",
+    "phone": "020-89068888",
     "star": "4钻",
     "rating": "4.6",
     "reviews": "很好5,008条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6z12000not2rq5B8E8_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "北山地铁站",
+        "distance": "4.2千米",
+        "drive": "驾车约12分钟"
+      }
+    ]
   },
   {
     "name": "壹加壹精品(广州新白云国际机场T2T3航站楼店)",
@@ -1392,15 +1610,21 @@ var HOTEL_DATA = [
     "name": "美豪丽致酒店(广州塔琶洲会展店)",
     "city": "广州",
     "district": "海珠",
-    "address": "",
-    "phone": "",
+    "address": "海珠区石榴岗3号",
+    "phone": "020-89118000",
     "star": "4钻",
     "rating": "4.6",
     "reviews": "很好4,395条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2212000c91inmy2686_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "磨碟沙地铁站",
+        "distance": "1.3千米",
+        "drive": "驾车约3分钟"
+      }
+    ]
   },
   {
     "name": "宜尚酒店(广州南站长隆钟村地铁站店)",
@@ -1546,15 +1770,21 @@ var HOTEL_DATA = [
     "name": "博悦·朗豪酒店(广州国际金融城员村地铁站店)",
     "city": "广州",
     "district": "天河",
-    "address": "",
-    "phone": "",
+    "address": "天河区员村二横路108",
+    "phone": "020-38888101",
     "star": "4钻",
     "rating": "4.6",
-    "reviews": "很好4,459条点评",
+    "reviews": "很好4,462条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0200g120008f2xozg788B_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "天河公园地铁站",
+        "distance": "1.2千米",
+        "drive": "驾车约3分钟"
+      }
+    ]
   },
   {
     "name": "雅致酒店(广州二沙岛珠江夜游店)",
@@ -1643,16 +1873,22 @@ var HOTEL_DATA = [
   {
     "name": "太阳城大酒店(广州增城新塘高铁站店)",
     "city": "广州",
-    "district": "黄埔",
-    "address": "",
-    "phone": "",
+    "district": "增城",
+    "address": "增城区新塘镇广深大道中151号",
+    "phone": "020-82706888",
     "star": "4钻",
     "rating": "4.6",
     "reviews": "很好894条点评",
     "price": "",
-    "photoQueen": "",
-    "photoTwin": "",
-    "transport": []
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1z12000txa2axk6C40_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "白江地铁站",
+        "distance": "1.4千米",
+        "drive": "驾车约4分钟"
+      }
+    ]
   },
   {
     "name": "艺龙万国酒店(广州白云国际机场店)",
@@ -1917,6 +2153,165 @@ var HOTEL_DATA = [
         "name": "广州东站汽车客运站",
         "distance": "1.5千米",
         "drive": "驾车约4分钟"
+      }
+    ]
+  },
+  {
+    "name": "霆枫酒店(广州钧明欢乐世界店)",
+    "city": "广州",
+    "district": "增城",
+    "address": "增城区创裕路426号",
+    "phone": "",
+    "star": "4钻",
+    "rating": "4.6",
+    "reviews": "很好689条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6j12000ise2jw57A6E_W_1280_853_R5_Q70.jpg",
+    "transport": []
+  },
+  {
+    "name": "广州朗豪酒店",
+    "city": "广州",
+    "district": "海珠",
+    "address": "海珠区新港东路638号",
+    "phone": "020-89163388",
+    "star": "4钻",
+    "rating": "4.7",
+    "reviews": "超棒3,208条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6m12000de0g92oD312_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "琶洲地铁站",
+        "distance": "960米",
+        "drive": "步行约14分钟"
+      }
+    ]
+  },
+  {
+    "name": "奈亚酒店(广州白云国际机场人和地铁站店)",
+    "city": "广州",
+    "district": "白云",
+    "address": "白云区人和镇商业一街27号",
+    "phone": "020-86030001",
+    "star": "4钻",
+    "rating": "4.6",
+    "reviews": "很好3,948条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/02054120008g57mxa663F_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "高增地铁站",
+        "distance": "2.7千米",
+        "drive": "驾车约8分钟"
+      },
+      {
+        "name": "白云机场南站",
+        "distance": "6.6千米",
+        "drive": "驾车约16分钟"
+      }
+    ]
+  },
+  {
+    "name": "全季酒店(广州中大地铁站店)",
+    "city": "广州",
+    "district": "海珠",
+    "address": "海珠区怡乐路76号",
+    "phone": "020-83599686",
+    "star": "4钻",
+    "rating": "4.8",
+    "reviews": "超棒2,598条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4a12000hfgur71CABD_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "晓港地铁站",
+        "distance": "900米",
+        "drive": "步行约13分钟"
+      }
+    ]
+  },
+  {
+    "name": "广州德安丽舍凯宾斯基酒店(越秀淘金店)",
+    "city": "广州",
+    "district": "越秀",
+    "address": "越秀区建设六马路19号",
+    "phone": "020-88889999",
+    "star": "4钻",
+    "rating": "4.6",
+    "reviews": "很好4,613条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/0202w12000tqftf7y2E61_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "烈士陵园地铁站",
+        "distance": "1.2千米",
+        "drive": "驾车约3分钟"
+      }
+    ]
+  },
+  {
+    "name": "广州雅诗阁琶洲服务公寓",
+    "city": "广州",
+    "district": "海珠",
+    "address": "海珠区芳园路1号",
+    "phone": "020-89999888",
+    "star": "4钻",
+    "rating": "4.6",
+    "reviews": "很好2,238条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6a12000erodxwg756A_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "琶醍地铁站",
+        "distance": "1.1千米",
+        "drive": "驾车约3分钟"
+      }
+    ]
+  },
+  {
+    "name": "宜致酒店(广州长隆野生动物世界店)",
+    "city": "广州",
+    "district": "番禺",
+    "address": "番禺区大石街105国道大石段613号",
+    "phone": "",
+    "star": "4钻",
+    "rating": "4.7",
+    "reviews": "超棒6,996条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/1mc3z12000tr5xqefB4F5_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "会江地铁站",
+        "distance": "2.9千米",
+        "drive": "驾车约8分钟"
+      }
+    ]
+  },
+  {
+    "name": "广州保利洲际酒店(广州塔琶洲会展中心店)",
+    "city": "广州",
+    "district": "海珠",
+    "address": "海珠区阅江中路828号",
+    "phone": "020-89228888",
+    "star": "4钻",
+    "rating": "4.8",
+    "reviews": "超棒3,690条点评",
+    "price": "",
+    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoTwin": "https://dimg04.c-ctrip.com/images/200k1h000001hppa7EBE6_W_1280_853_R5_Q70.jpg",
+    "transport": [
+      {
+        "name": "琶洲大桥南地铁站",
+        "distance": "1千米",
+        "drive": "驾车约3分钟"
       }
     ]
   }
