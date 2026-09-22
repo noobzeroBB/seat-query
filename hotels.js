@@ -9,7 +9,7 @@ var HOTEL_DATA = [
     "rating": "4.9",
     "reviews": "超棒1,507条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2312000qxwze2544CC_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -43,7 +43,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒3,182条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0203z12000qr7vqf75558_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -68,7 +68,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒14,318条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2912000f5929vu58ED_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -93,7 +93,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒8,195条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2k12000tnnb022005A_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -118,7 +118,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒8,386条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4e12000s0ulcw2B533_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -152,7 +152,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒14,289条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1p12000bl9k0900FBE_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -186,7 +186,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒5,549条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0g12000t48j8fv3339_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -211,7 +211,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒1,088条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5z12000pk3kqddAB52_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -264,7 +264,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒5,102条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/02039120009doq3c93EBE_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -298,7 +298,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒1,896条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1x12000lv50c7i5360_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -426,7 +426,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒1,174条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0204j12000scrcibe4C44_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -586,7 +586,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒2,841条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5d12000twyuzgdE7F5_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -690,7 +690,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒1,238条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6p12000t2czxsi530B_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -720,7 +720,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒13,528条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0205q12000creo7x95F13_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -778,7 +778,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒12,196条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0203s12000twygrox0A0C_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -798,7 +798,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒5,737条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6q12000d56hcgz76FC_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -846,7 +846,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒6,915条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0206l12000lspm41r7267_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -866,7 +866,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒5,165条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0x12000splghgh0AC5_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -891,7 +891,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒1,389条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2112000niid6fx9FFB_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -939,7 +939,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒1,906条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0r12000lgakxaxA046_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -997,7 +997,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒4,819条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0204312000a5fdnn77B17_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1087,7 +1087,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒8,508条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4212000acpi5myECCF_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1308,7 +1308,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒5,943条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0201d12000a0cgvj9D596_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1459,7 +1459,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒2,240条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4l12000oxf4cjoE86C_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1498,7 +1498,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好11,735条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1j12000slrwkpbF616_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1528,7 +1528,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好1,416条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4712000rjmxqw21797_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1548,7 +1548,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好12,273条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0221c1200084aggt365CC_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1568,7 +1568,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好5,008条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6z12000not2rq5B8E8_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1616,7 +1616,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好4,395条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2212000c91inmy2686_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1776,7 +1776,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好4,462条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0200g120008f2xozg788B_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1880,7 +1880,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好894条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1z12000txa2axk6C40_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -1942,7 +1942,7 @@ var HOTEL_DATA = [
     "rating": "4.5",
     "reviews": "很好7,128条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0206f1200085ecv754738_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2066,7 +2066,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒1,608条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc3r12000t6zdy327AA6_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2091,7 +2091,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒2,659条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5412000qzpeks85BCE_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2111,7 +2111,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒9,907条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6f12000hrejeww92B0_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2141,7 +2141,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒11,423条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1y12000epvk905949D_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2166,7 +2166,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好689条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6j12000ise2jw57A6E_W_1280_853_R5_Q70.jpg",
     "transport": []
   },
@@ -2180,7 +2180,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒3,208条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6m12000de0g92oD312_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2200,7 +2200,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好3,948条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/02054120008g57mxa663F_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2225,7 +2225,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒2,598条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4a12000hfgur71CABD_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2245,7 +2245,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好4,613条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0202w12000tqftf7y2E61_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2265,7 +2265,7 @@ var HOTEL_DATA = [
     "rating": "4.6",
     "reviews": "很好2,238条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6a12000erodxwg756A_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2285,7 +2285,7 @@ var HOTEL_DATA = [
     "rating": "4.7",
     "reviews": "超棒6,996条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc3z12000tr5xqefB4F5_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
@@ -2305,7 +2305,7 @@ var HOTEL_DATA = [
     "rating": "4.8",
     "reviews": "超棒3,690条点评",
     "price": "",
-    "photoQueen": "https://dimg04.c-ctrip.com/images/27c2312000na9j5h1276B.jpg",
+    "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/200k1h000001hppa7EBE6_W_1280_853_R5_Q70.jpg",
     "transport": [
       {
