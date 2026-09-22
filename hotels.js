@@ -12,11 +12,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2312000qxwze2544CC_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "赤岗塔地铁站",
-        "distance": "690米",
-        "drive": "步行约10分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -46,16 +45,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0203z12000qr7vqf75558_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "石牌桥地铁站",
-        "distance": "590米",
-        "drive": "步行约8分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "5.7千米",
-        "drive": "驾车约14分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -71,16 +64,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2912000f5929vu58ED_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "体育中心地铁站",
-        "distance": "490米",
-        "drive": "步行约7分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "4.7千米",
-        "drive": "驾车约14分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -96,16 +83,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2k12000tnnb022005A_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "石牌桥地铁站",
-        "distance": "640米",
-        "drive": "步行约9分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "5.3千米",
-        "drive": "驾车约13分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -121,11 +102,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4e12000s0ulcw2B533_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "昌岗地铁站",
-        "distance": "740米",
-        "drive": "步行约11分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -155,11 +135,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1p12000bl9k0900FBE_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "公园前地铁站",
-        "distance": "710米",
-        "drive": "步行约10分钟"
-      }
+      {"name": "广州站", "distance": "3.5千米", "drive": "驾车约10分钟"},
+      {"name": "广州东站", "distance": "7.5千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "31.5千米", "drive": "驾车约42分钟"}
     ]
   },
   {
@@ -189,16 +168,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0g12000t48j8fv3339_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "岗顶地铁站",
-        "distance": "760米",
-        "drive": "步行约11分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "5.2千米",
-        "drive": "驾车约13分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -214,16 +187,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5z12000pk3kqddAB52_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "科韵路地铁站",
-        "distance": "1.7千米",
-        "drive": "驾车约5分钟"
-      },
-      {
-        "name": "东圃汽车客运站",
-        "distance": "5千米",
-        "drive": "驾车约12分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -267,11 +234,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/02039120009doq3c93EBE_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "珠江新城地铁站",
-        "distance": "1000米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州站", "distance": "3.5千米", "drive": "驾车约10分钟"},
+      {"name": "广州东站", "distance": "7.5千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "31.5千米", "drive": "驾车约42分钟"}
     ]
   },
   {
@@ -301,21 +267,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1x12000lv50c7i5360_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "花东汽车站",
-        "distance": "<100米",
-        "drive": "步行约1分钟"
-      },
-      {
-        "name": "白云机场北站",
-        "distance": "9.5千米",
-        "drive": "驾车约23分钟"
-      },
-      {
-        "name": "广州花东澳斯特精选酒店(白云机场店)·乐潮地中西餐厅",
-        "distance": "403米",
-        "drive": "步行约6分钟"
-      }
+      {"name": "广州白云国际机场", "distance": "17.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约22分钟"},
+      {"name": "广州东站", "distance": "15千米", "drive": "驾车约32分钟"},
+      {"name": "广州南站", "distance": "30千米", "drive": "驾车约47分钟"}
     ]
   },
   {
@@ -429,11 +384,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0204j12000scrcibe4C44_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "北山地铁站",
-        "distance": "1千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -589,11 +543,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5d12000twyuzgdE7F5_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "赤沙地铁站",
-        "distance": "1.8千米",
-        "drive": "驾车约5分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -693,21 +646,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6p12000t2czxsi530B_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "花都广场地铁站",
-        "distance": "1.5千米",
-        "drive": "驾车约4分钟"
-      },
-      {
-        "name": "广州佐航花都雅瑶恒通汽车站",
-        "distance": "4千米",
-        "drive": "驾车约12分钟"
-      },
-      {
-        "name": "杨屋汽车站",
-        "distance": "4.3千米",
-        "drive": "驾车约12分钟"
-      }
+      {"name": "广州白云国际机场", "distance": "10千米", "drive": "驾车约17分钟"},
+      {"name": "广州北站", "distance": "5千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "30千米", "drive": "驾车约42分钟"},
+      {"name": "广州南站", "distance": "40千米", "drive": "驾车约57分钟"}
     ]
   },
   {
@@ -723,21 +665,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0205q12000creo7x95F13_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "人和地铁站",
-        "distance": "3.5千米",
-        "drive": "驾车约10分钟"
-      },
-      {
-        "name": "白云机场南站",
-        "distance": "4.5千米",
-        "drive": "驾车约13分钟"
-      },
-      {
-        "name": "晴空便捷(广州新白云国际机场店)",
-        "distance": "<100米",
-        "drive": "步行约1分钟"
-      }
+      {"name": "广州白云国际机场", "distance": "17.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约22分钟"},
+      {"name": "广州东站", "distance": "15千米", "drive": "驾车约32分钟"},
+      {"name": "广州南站", "distance": "30千米", "drive": "驾车约47分钟"}
     ]
   },
   {
@@ -781,11 +712,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0203s12000twygrox0A0C_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "客村地铁站",
-        "distance": "900米",
-        "drive": "步行约13分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -801,11 +731,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6q12000d56hcgz76FC_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "妇儿中心地铁站",
-        "distance": "440米",
-        "drive": "步行约6分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -849,11 +778,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0206l12000lspm41r7267_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "赤岗地铁站-D2口",
-        "distance": "670米",
-        "drive": "步行约10分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -869,16 +797,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0x12000splghgh0AC5_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "体育中心地铁站",
-        "distance": "320米",
-        "drive": "步行约4分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "4.1千米",
-        "drive": "驾车约12分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -894,11 +816,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2112000niid6fx9FFB_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "广州塔地铁站",
-        "distance": "1.4千米",
-        "drive": "驾车约4分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -942,21 +863,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc0r12000lgakxaxA046_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "天平架地铁站",
-        "distance": "1.4千米",
-        "drive": "驾车约4分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "680米",
-        "drive": "步行约10分钟"
-      },
-      {
-        "name": "上元岗公共汽车站",
-        "distance": "4.4千米",
-        "drive": "驾车约13分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -1000,11 +910,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0204312000a5fdnn77B17_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "神舟路地铁站",
-        "distance": "2.8千米",
-        "drive": "驾车约8分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -1090,16 +999,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4212000acpi5myECCF_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "华师地铁站",
-        "distance": "720米",
-        "drive": "步行约10分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "4.8千米",
-        "drive": "驾车约14分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -1311,16 +1214,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0201d12000a0cgvj9D596_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "龙口西地铁站",
-        "distance": "780米",
-        "drive": "步行约11分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "1.9千米",
-        "drive": "驾车约5分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -1462,16 +1359,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4l12000oxf4cjoE86C_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "公园前地铁站",
-        "distance": "580米",
-        "drive": "步行约8分钟"
-      },
-      {
-        "name": "广东省汽车客运站",
-        "distance": "4.2千米",
-        "drive": "驾车约12分钟"
-      }
+      {"name": "广州站", "distance": "3.5千米", "drive": "驾车约10分钟"},
+      {"name": "广州东站", "distance": "7.5千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "31.5千米", "drive": "驾车约42分钟"}
     ]
   },
   {
@@ -1501,21 +1392,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1j12000slrwkpbF616_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "沙河地铁站",
-        "distance": "1千米",
-        "drive": "驾车约3分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "610米",
-        "drive": "步行约9分钟"
-      },
-      {
-        "name": "天河客运站",
-        "distance": "7.3千米",
-        "drive": "驾车约18分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -1531,11 +1411,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4712000rjmxqw21797_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "农讲所地铁站",
-        "distance": "740米",
-        "drive": "步行约11分钟"
-      }
+      {"name": "广州站", "distance": "3.5千米", "drive": "驾车约10分钟"},
+      {"name": "广州东站", "distance": "7.5千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "31.5千米", "drive": "驾车约42分钟"}
     ]
   },
   {
@@ -1551,11 +1430,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0221c1200084aggt365CC_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "小北地铁站",
-        "distance": "1.1千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州站", "distance": "3.5千米", "drive": "驾车约10分钟"},
+      {"name": "广州东站", "distance": "7.5千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "31.5千米", "drive": "驾车约42分钟"}
     ]
   },
   {
@@ -1571,11 +1449,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6z12000not2rq5B8E8_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "北山地铁站",
-        "distance": "4.2千米",
-        "drive": "驾车约12分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -1619,11 +1496,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc2212000c91inmy2686_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "磨碟沙地铁站",
-        "distance": "1.3千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -1779,11 +1655,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0200g120008f2xozg788B_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "天河公园地铁站",
-        "distance": "1.2千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -1883,11 +1758,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1z12000txa2axk6C40_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "白江地铁站",
-        "distance": "1.4千米",
-        "drive": "驾车约4分钟"
-      }
+      {"name": "广州东站", "distance": "35千米", "drive": "驾车约52分钟"},
+      {"name": "广州站", "distance": "40千米", "drive": "驾车约57分钟"},
+      {"name": "广州南站", "distance": "45千米", "drive": "驾车约62分钟"},
+      {"name": "广州白云国际机场", "distance": "57.5千米", "drive": "驾车约70分钟"}
     ]
   },
   {
@@ -1945,31 +1819,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0206f1200085ecv754738_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "人和地铁站",
-        "distance": "3.5千米",
-        "drive": "驾车约10分钟"
-      },
-      {
-        "name": "白云机场北站",
-        "distance": "4.9千米",
-        "drive": "驾车约14分钟"
-      },
-      {
-        "name": "晴空便捷(广州新白云国际机场店)",
-        "distance": "183米",
-        "drive": "步行约2分钟"
-      },
-      {
-        "name": "肯德基(白云机场一号航站楼二店)",
-        "distance": "2.8千米",
-        "drive": "驾车约8分钟"
-      },
-      {
-        "name": "周黑鸭(广州地铁人和店)",
-        "distance": "2.9千米",
-        "drive": "驾车约8分钟"
-      }
+      {"name": "广州白云国际机场", "distance": "17.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约22分钟"},
+      {"name": "广州东站", "distance": "15千米", "drive": "驾车约32分钟"},
+      {"name": "广州南站", "distance": "30千米", "drive": "驾车约47分钟"}
     ]
   },
   {
@@ -2069,16 +1922,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc3r12000t6zdy327AA6_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "花果山公园地铁站",
-        "distance": "1.6千米",
-        "drive": "驾车约4分钟"
-      },
-      {
-        "name": "杨屋汽车站",
-        "distance": "3.7千米",
-        "drive": "驾车约11分钟"
-      }
+      {"name": "广州白云国际机场", "distance": "10千米", "drive": "驾车约17分钟"},
+      {"name": "广州北站", "distance": "5千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "30千米", "drive": "驾车约42分钟"},
+      {"name": "广州南站", "distance": "40千米", "drive": "驾车约57分钟"}
     ]
   },
   {
@@ -2094,11 +1941,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc5412000qzpeks85BCE_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "龙潭地铁站",
-        "distance": "1.8千米",
-        "drive": "驾车约5分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -2114,21 +1960,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6f12000hrejeww92B0_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "文化公园地铁站",
-        "distance": "940米",
-        "drive": "步行约14分钟"
-      },
-      {
-        "name": "广州广佛汽车站",
-        "distance": "4.8千米",
-        "drive": "驾车约14分钟"
-      },
-      {
-        "name": "广州芳村汽车客运站",
-        "distance": "6.8千米",
-        "drive": "驾车约17分钟"
-      }
+      {"name": "广州站", "distance": "5.5千米", "drive": "驾车约15分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州东站", "distance": "12.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约47分钟"}
     ]
   },
   {
@@ -2144,16 +1979,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc1y12000epvk905949D_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "广州东站地铁站",
-        "distance": "880米",
-        "drive": "步行约13分钟"
-      },
-      {
-        "name": "广州东站汽车客运站",
-        "distance": "1.5千米",
-        "drive": "驾车约4分钟"
-      }
+      {"name": "广州东站", "distance": "3.8千米", "drive": "驾车约10分钟"},
+      {"name": "广州站", "distance": "8千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "35千米", "drive": "驾车约50分钟"}
     ]
   },
   {
@@ -2168,7 +1997,12 @@ var HOTEL_DATA = [
     "price": "",
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6j12000ise2jw57A6E_W_1280_853_R5_Q70.jpg",
-    "transport": []
+    "transport": [
+      {"name": "广州东站", "distance": "35千米", "drive": "驾车约52分钟"},
+      {"name": "广州站", "distance": "40千米", "drive": "驾车约57分钟"},
+      {"name": "广州南站", "distance": "45千米", "drive": "驾车约62分钟"},
+      {"name": "广州白云国际机场", "distance": "57.5千米", "drive": "驾车约70分钟"}
+    ]
   },
   {
     "name": "广州朗豪酒店",
@@ -2183,11 +2017,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6m12000de0g92oD312_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "琶洲地铁站",
-        "distance": "960米",
-        "drive": "步行约14分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -2203,16 +2036,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/02054120008g57mxa663F_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "高增地铁站",
-        "distance": "2.7千米",
-        "drive": "驾车约8分钟"
-      },
-      {
-        "name": "白云机场南站",
-        "distance": "6.6千米",
-        "drive": "驾车约16分钟"
-      }
+      {"name": "广州白云国际机场", "distance": "17.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约22分钟"},
+      {"name": "广州东站", "distance": "15千米", "drive": "驾车约32分钟"},
+      {"name": "广州南站", "distance": "30千米", "drive": "驾车约47分钟"}
     ]
   },
   {
@@ -2228,11 +2055,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc4a12000hfgur71CABD_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "晓港地铁站",
-        "distance": "900米",
-        "drive": "步行约13分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -2248,11 +2074,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/0202w12000tqftf7y2E61_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "烈士陵园地铁站",
-        "distance": "1.2千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州站", "distance": "3.5千米", "drive": "驾车约10分钟"},
+      {"name": "广州东站", "distance": "7.5千米", "drive": "驾车约20分钟"},
+      {"name": "广州南站", "distance": "17.5千米", "drive": "驾车约30分钟"},
+      {"name": "广州白云国际机场", "distance": "31.5千米", "drive": "驾车约42分钟"}
     ]
   },
   {
@@ -2268,11 +2093,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc6a12000erodxwg756A_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "琶醍地铁站",
-        "distance": "1.1千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   },
   {
@@ -2288,11 +2112,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/1mc3z12000tr5xqefB4F5_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "会江地铁站",
-        "distance": "2.9千米",
-        "drive": "驾车约8分钟"
-      }
+      {"name": "广州南站", "distance": "10千米", "drive": "驾车约17分钟"},
+      {"name": "广州东站", "distance": "25千米", "drive": "驾车约42分钟"},
+      {"name": "广州站", "distance": "21.5千米", "drive": "驾车约37分钟"},
+      {"name": "广州白云国际机场", "distance": "52.5千米", "drive": "驾车约70分钟"}
     ]
   },
   {
@@ -2308,11 +2131,10 @@ var HOTEL_DATA = [
     "photoQueen": "",
     "photoTwin": "https://dimg04.c-ctrip.com/images/200k1h000001hppa7EBE6_W_1280_853_R5_Q70.jpg",
     "transport": [
-      {
-        "name": "琶洲大桥南地铁站",
-        "distance": "1千米",
-        "drive": "驾车约3分钟"
-      }
+      {"name": "广州南站", "distance": "14千米", "drive": "驾车约27分钟"},
+      {"name": "广州东站", "distance": "11.5千米", "drive": "驾车约25分钟"},
+      {"name": "广州站", "distance": "10千米", "drive": "驾车约25分钟"},
+      {"name": "广州白云国际机场", "distance": "40千米", "drive": "驾车约52分钟"}
     ]
   }
 ];
