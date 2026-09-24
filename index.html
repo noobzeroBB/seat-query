@@ -115,7 +115,7 @@ button { width: 100%; height: 48px; background: #D4A853; border: none; border-ra
 
 <script src="seats.js"></script>
 <script src="hotels.js?v=20260924"></script>
-<script src="hotels_photos.js?v=20260924b"></script>
+<script src="hotels_photos.js?v=20260924c"></script>
 <script>
 var currentHotel = null;
 var lastSearchResults = null;
@@ -381,7 +381,7 @@ document.getElementById("export-confirm").addEventListener("click", async functi
         var reader = new FileReader();
         reader.onloadend = function() {
           resolve(reader.result.split(',')[1]);
-        }
+        };
         reader.readAsDataURL(blob);
       });
     } catch(e) {
@@ -490,7 +490,7 @@ document.getElementById("export-confirm").addEventListener("click", async functi
       var t = hotel.transport[i];
       children.push(new docx.Paragraph({ 
         children: [
-          new docx.TextRun({ text: "* " }),
+          new docx.TextRun({ text: "* "}),
           new docx.TextRun({ text: t.name, bold: true }),
           new docx.TextRun({ text: " : " + t.distance + " ; " + t.drive })
         ],
