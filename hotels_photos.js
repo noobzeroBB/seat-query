@@ -308,8 +308,8 @@ var HOTEL_PHOTOS = {
     "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.4Fm61uED30uKd6sGYgSqUQHaFJ?w=600&h=450&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
   },
   "洲至奢选广州香岚官洲酒店": {
-    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.2uh3HadZY2QYagas6YOl6QHaFh?w=285&h=213&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
-    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.3VdqkUNaQ0UvvgorHmD9ngHaFj?w=284&h=213&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.Q-lcqVVpm15eA3xCgUx2cAHaGs?w=240&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.6Nz7fn7OElE92rrqTR4DdQHaFt?w=240&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
   },
   "壹加壹精品(广州新白云国际机场T2T3航站楼店)": {
     "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.8dfJFEau39D6v7pRA7ZSUAHaEu?w=242&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
