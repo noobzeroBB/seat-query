@@ -1,1 +1,1 @@
-var HOTEL_PHOTOS = {};
+var HOTEL_PHOTOS = {"广州塔艺术博物院亚朵酒店":{"q":"https://tse1-mm.cn.bing.net/th/id/OIP-C.lIl_pugWRpXOoIQublUruwHaFj?w=247&h=185&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3","t":"https://tse1-mm.cn.bing.net/th/id/OIP-C.lIl_pugWRpXOoIQublUruwHaFj?w=229&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"}};
