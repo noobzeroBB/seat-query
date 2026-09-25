@@ -546,5 +546,201 @@ var HOTEL_PHOTOS = {
   "城市便捷酒店(广州国际金融城科韵路地铁站店)": {
     "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.jzLoPhnFSGkqc3i3wGd2oQHaGv?w=209&h=191&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
     "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.jzLoPhnFSGkqc3i3wGd2oQHaGv?w=205&h=187&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "丽江度假花园酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.wv6Uh7L_9gDmnXmEqHGJtAHaE8?w=276&h=184&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.WM45PsRkrWpAiuyn8348nQHaEl?w=296&h=183&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "花都丽美大酒店": {
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.XGzpiQPb5YCwpPnUcasscgHaE8?w=306&h=204&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.K-_0IXjndfVkvn5t3rMEoAHaE7?w=263&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "新世界大酒店": {
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.nHwo9jjuoULVhOz2YHKrQQHaEc?w=286&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.JEy_G_9X9X_RCkVfE2v0OQHaE8?w=264&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州新好景大酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=224&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=223&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "莲花山粤海度假村": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.Ujr5OiO8HCGQQnKdnXPSdQHaFh?w=265&h=197&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.7VXJel7mRv8FdlWQYdqmxgHaFk?w=272&h=204&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "新天河宾馆": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.nYPIfMUvtwQgYWajbJjQLgHaEW?w=314&h=184&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=268&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "珠海特区大酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.eqXPZYqaCHC28kfGJvRyGQHaEK?w=284&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=264&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广东邮电大厦": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.XLK-GauxW4zWjYxoGNNcrQHaEK?w=281&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.6S0_iDv_JZ3KDHZ8URWl5gHaE9?w=249&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州五羊城酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=217&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.4Fm61uED30uKd6sGYgSqUQHaFJ?w=234&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "江悦酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.eqXPZYqaCHC28kfGJvRyGQHaEK?w=284&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=248&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "冰花酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.Wxq5cgXTcxlgLCpRGfcFQAHaE7?w=214&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=264&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "华辉度假村": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.eqXPZYqaCHC28kfGJvRyGQHaEK?w=331&h=186&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.JEy_G_9X9X_RCkVfE2v0OQHaE8?w=250&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广轩大厦": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.jEd34GnC_Yj-VO9DKQ1cKAHaHa?w=173&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=245&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "南方毅源大酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.nYPIfMUvtwQgYWajbJjQLgHaEW?w=294&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=258&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州石化明珠宾馆": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=229&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.gWUiJefTIT6XezbwoNQmOwHaEK?w=290&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广东长城酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=249&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=248&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "西湖苑宾馆": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.Ig6C7sdDa7nSthDg8UpZogHaE8?w=245&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.JEy_G_9X9X_RCkVfE2v0OQHaE8?w=250&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "银河大酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.0-cHMVpKv67U7HjIxbwJAAHaE7?w=238&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=262&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州汇东假日酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=212&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.JEy_G_9X9X_RCkVfE2v0OQHaE8?w=236&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "爱群大酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.IjqlKJxDS5PSzTgev8XDbwAAAA?w=208&h=179&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=261&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "湖天宾馆": {
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.NsOrET4d_u1c9fAiOuWMcAHaE8?w=252&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.NsOrET4d_u1c9fAiOuWMcAHaE8?w=302&h=202&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "东方丝绸大酒店": {
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.bUPituA9JPtpMTrxYeS2rwHaEl?w=317&h=196&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=273&h=182&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广东华侨友谊酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=263&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=247&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州戴斯酒店": {
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.nHwo9jjuoULVhOz2YHKrQQHaEc?w=278&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.4Fm61uED30uKd6sGYgSqUQHaFJ?w=239&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "中华酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.j6T61j876NxUPH33z5TXAgHaFQ?w=234&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=306&h=204&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "山西大厦": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.m2TOf_fzqi8yGRRDa1qiMAAAAA?w=205&h=169&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=236&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "怡凯酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.eqXPZYqaCHC28kfGJvRyGQHaEK?w=328&h=184&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=262&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "景观酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.EXJd1H2pK18ic90xw_5tZgHaE8?w=266&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.sZEA1nWgeVmesNDmODFbUgHaHa?w=193&h=193&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州悦海酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=214&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.gWUiJefTIT6XezbwoNQmOwHaEK?w=260&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州金之鼎酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=221&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.K-_0IXjndfVkvn5t3rMEoAHaE7?w=245&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "恒胜华悦客家文化酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AMLoNjNrjA2V-3g0cD_jTAHaE8?w=216&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=250&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "锦都假日酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.I6HNtII3DALFB2F4HgL6QQHaEo?w=279&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.V79GECJx1uPaB2cQV00DwwHaFG?w=254&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "三茂大酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JbvNUbAu2SebSpf1vuSXOgHaG8?w=190&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=262&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广东红叶酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=219&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=278&h=185&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "乐涛居酒店": {
+    "q": "https://aka.doubaocdn.com/s/9cgAgaOyJZ",
+    "t": "https://aka.doubaocdn.com/s/ZRwQI22Ywp"
+  },
+  "琶洲酒店": {
+    "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.XwiFFSuMySe7RCyBSLvwIgHaE7?w=219&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=270&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州翠岛水电度假村": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.eqXPZYqaCHC28kfGJvRyGQHaEK?w=254&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.hR9qUHclnpSslAkJu8TjzwHaDF?w=336&h=145&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "银座大酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=241&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=251&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "圣玛登酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.eqXPZYqaCHC28kfGJvRyGQHaEK?w=290&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.gWUiJefTIT6XezbwoNQmOwHaEK?w=261&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "清音酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=226&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=249&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "亨利酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=278&h=185&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=251&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州白云嘉信酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.0CtjiwM7yW1usxn4bb1GCQHaDx?w=331&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.JEy_G_9X9X_RCkVfE2v0OQHaE8?w=268&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "广州君御酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=247&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse2-mm.cn.bing.net/th/id/OIP-C.JEy_G_9X9X_RCkVfE2v0OQHaE8?w=236&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "高滩温泉酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.0n5CNbqMUEodPSYJjsktjwHaFj?w=207&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.r0s60K0Yoy7R55GSFI-26AHaFj?w=189&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "石牌酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=237&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.JKTOZBQGZEsPvqdh9TKv3QHaE8?w=267&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "白云城市酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.x4Lz4aUHtmtGO0U5fCIK3AHaDx?w=299&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.DpSUoo6t4IsGBKBLA9JU6gHaDx?w=339&h=178&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "光华假日酒店": {
+    "q": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AzKfMN5CDoBALU8RLZ8ywQHaE7?w=259&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.gWUiJefTIT6XezbwoNQmOwHaEK?w=237&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "新华大酒店": {
+    "q": "https://tse2-mm.cn.bing.net/th/id/OIP-C.BKc7EWz5fuoBEkeqqBxsZwHaFC?w=259&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse4-mm.cn.bing.net/th/id/OIP-C.0vTx8QunIt7kOTzlmQhm5AHaFC?w=265&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
+  },
+  "花都区花东丽湾酒店": {
+    "q": "https://tse4-mm.cn.bing.net/th/id/OIP-C.iYoc7w33wso68cjPHE1oNgHaFl?w=217&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
+    "t": "https://tse3-mm.cn.bing.net/th/id/OIP-C.gWUiJefTIT6XezbwoNQmOwHaEK?w=252&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
   }
 };
