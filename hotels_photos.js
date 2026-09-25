@@ -308,8 +308,8 @@ var HOTEL_PHOTOS = {
     "t": "https://tse1-mm.cn.bing.net/th/id/OIP-C.4Fm61uED30uKd6sGYgSqUQHaFJ?w=600&h=450&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3"
   },
   "洲至奢选广州香岚官洲酒店": {
-    "q": "",
-    "t": ""
+    "q": "https://aka.doubaocdn.com/s/c8GUwyWEDe",
+    "t": "https://aka.doubaocdn.com/s/LUIvyZTl0U"
   },
   "壹加壹精品(广州新白云国际机场T2T3航站楼店)": {
     "q": "https://tse1-mm.cn.bing.net/th/id/OIP-C.8dfJFEau39D6v7pRA7ZSUAHaEu?w=242&h=180&c=7&r=0&o=7&dpr=1.8&pid=1.7&rm=3",
